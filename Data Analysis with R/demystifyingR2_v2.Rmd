@@ -1,0 +1,174 @@
+Demystifying R Part 2
+========================================================
+
+You might see a warning message just above this file. Something like...
+"R Markdown requires the knitr package (version 1.2 or higher)"
+Don't worry about this for now. We'll address it at the end of this file.
+
+1. Run the following command to see what it does.
+```{r}
+summary(mtcars)
+```
+
+If you know about quantiles, then the output should look familiar.
+If not, you probably recognize the min (minimum), median, mean, and max (maximum).
+We'll go over quantiles in Lesson 3 so don't worry if the output seems overwhelming.
+
+The str() and summary() functions are helpful commands when working with a new data set.
+The str() function gives us the variable names and their types.
+The summary() function gives us an idea of the values a variable can take on.
+
+2. In 2013, the average mpg (miles per gallon) for a car was 23 mpg.
+The car models in the mtcars data set come from the year 1973-1974.
+Subset the data so that you create a new data frame that contains
+cars that get 23 or more mpg (miles per gallon). Save it to a new data
+frame called efficient.
+```{r}
+efficient <- mtcars[mtcars$mpg >= 23,]
+```
+
+3. How many cars get more than 23 mpg? Use one of the commands you
+learned in the demystifying.R to answer this question.
+```{r}
+str(efficient)
+```
+
+ANS 11
+
+4. We can also use logical operators to find out which car(s) get greater
+than 30 miles per gallon (mpg) and have more than 100 raw horsepower.
+```{r}
+subset(mtcars, mpg > 30 & hp > 100)
+subset(mtcars, mpg >= 30 | hp <= 60)
+```
+
+There's only one car that gets more than 30 mpg and 100 hp.
+
+ANS Lotus Europa
+
+5. What do you think this code does? Scroll down for the answer.
+```{r}
+subset(mtcars, mpg < 14 | disp > 390)
+```
+
+Note: You may be familiar with the || operator in Java. R uses one single & for the logical
+operator AND. It also uses one | for the logical operator OR.
+
+
+The command above creates a data frame of cars that have mpg less than 14
+OR a displacement of more than 390. Only one of the conditions for a car
+needs to be satisfied so that the car makes it into the subset. Any of the
+cars that fit the criteria are printed to the console.
+
+Now you try some.
+
+6. Print the cars that have a 1/4 mile time (qsec) less than or equal to
+16.90 seconds to the console.
+```{r}
+subset(mtcars, qsec <= (16.90-0.25))
+```
+
+7. Save the subset of cars that weigh under 2000 pounds (weight is measured in lb/1000) to a variable called lightCars. Print the numbers of cars and the subset to the console.
+```{r}
+lightCars <- mtcars[mtcars$wt < 2000,]
+nrow(lightCars)
+```
+
+8. You can also create new variables in a data frame. Let's say you wanted
+to have the year of each car's model. We can create the variable
+mtcars$year. Here we'll assume that all of the models were from 1974.
+Run the code below.
+```{r}
+mtcars$year <- 1974
+```
+
+Notice how the number of variables changed in the work space. You can
+also see the result by double clicking on mtcars in the workspace and
+examining the data in a table.
+
+To drop a variable, subset the data frame and select the variable you
+want to drop with a negative sign in front of it.
+```{r}
+mtcars <- subset(mtcars, select = -year)
+```
+
+Notice, we are back to 11 variables in the data frame.
+
+9. What do you think this code does? Run it to find out.
+```{r}
+mtcars$year <- c(1973, 1974)
+```
+
+Open the table of values to see what values year takes on.
+
+Drop the year variable from the data set.
+```{r}
+mtcars <- subset(mtcars, select = -year)
+```
+
+
+10. Now you are going to get a preview of ifelse(). For those new
+to programming this example may be confusing. See if you can understand
+the code by running the commands one line at a time. Read the output and
+make sense of what the code is doing at each step.
+
+If you are having trouble don't worry, we will review the ifelse statement
+at the end of Lesson 3. You won't be quizzed on it, and it's not essential
+to keep going in this course. We just want you to try to get familiar with
+more code.
+```{r}
+mtcars$wt
+cond <- mtcars$wt < 3
+cond
+mtcars$weight_class <- ifelse(cond, 'light', 'average')
+mtcars$weight_class
+cond <- mtcars$wt > 3.5
+mtcars$weight_class <- ifelse(cond, 'heavy', mtcars$weight_class)
+mtcars$weight_class
+```
+
+You have some variables in your workspace or environment like 'cond' and
+efficient. You want to be careful that you don't bring in too much data
+into R at once since R will hold all the data in working memory. We have nothing to worry about here, but let's delete those variables from the
+work space.
+
+```{r}
+rm(cond)
+rm(efficient)
+```
+
+Save this file if you haven't done so yet.
+
+
+You'll have the opportunity to create an Rmd file for the final project in
+this class and submit the the Rmd file and html file. You'll need the
+knitr package to do that so let's install that now. Run these two lines
+of code.
+
+```{r}
+# install.packages('knitr', dependencies = T)
+# library(knitr)
+```
+
+Once you've installed knitr, comment out the two lines of code above.
+When you click the **Knit HTML** button a web page will be generated that
+includes both content (text and text formatting from Markdown) as well as
+the output of any embedded R code chunks within the document.
+
+
+You've reached the end of the file so now it's time to write some code to
+answer a question to continue on in Lesson 2.
+
+Which car(s) have an mpg (miles per gallon) greater than or equal to 30
+OR hp (horsepower) less than 60? Create an R chunk of code to answer the question.
+
+
+
+Once you have the answer, go the [Udacity website](https://www.udacity.com/course/viewer#!/c-ud651/l-729069797/e-804129319/m-811719066) to continue with Lesson 2.
+Note: You use brackets around text followed by two parentheses to create a link. There must be no spaces between the brackets and the parentheses. Paste or type the link into the parentheses. This also works on the discussions!
+
+And if you want to see all of your HARD WORK from this file, click
+the **KNIT HTML** button now. (You may or may not need to restart R).
+
+# CONGRATULATIONS
+#### You'll be exploring data soon with your new knowledge of R.
