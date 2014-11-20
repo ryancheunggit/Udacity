@@ -49,7 +49,7 @@ ggplot(aes(x = age, y = friend_count), data = pf) +
 ```
 
 ```
-## Warning: Removed 5184 rows containing missing values (geom_point).
+## Warning: Removed 5207 rows containing missing values (geom_point).
 ```
 
 ![plot of chunk Overplotting](figure/Overplotting-1.png) 
@@ -67,7 +67,7 @@ ggplot(aes(x = age, y = friend_count), data = pf) +
 ```
 
 ```
-## Warning: Removed 5174 rows containing missing values (geom_point).
+## Warning: Removed 5183 rows containing missing values (geom_point).
 ```
 
 ![plot of chunk Coord_trans()](figure/Coord_trans()-1.png) 
@@ -81,7 +81,7 @@ ggplot(aes(x = age, y = friendships_initiated), data = pf) +
 ```
 
 ```
-## Warning: Removed 5185 rows containing missing values (geom_point).
+## Warning: Removed 5191 rows containing missing values (geom_point).
 ```
 
 ![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
@@ -95,57 +95,55 @@ library(dplyr)
 ```
 
 ```
-## Error in library(dplyr): there is no package called 'dplyr'
+## 
+## Attaching package: 'dplyr'
+## 
+## The following object is masked from 'package:stats':
+## 
+##     filter
+## 
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
 ```
 
 ```r
 age_groups <- group_by(pf, age)
-```
-
-```
-## Error in eval(expr, envir, enclos): 没有"group_by"这个函数
-```
-
-```r
 pf.fc_by_age <- summarise(age_groups, 
           friend_count_mean = mean(friend_count),
           friend_count_median = median(friend_count),
           n = n())
-```
-
-```
-## Error in eval(expr, envir, enclos): 没有"summarise"这个函数
-```
-
-```r
 pf.fc_by_age <- arrange(pf.fc_by_age,age)
-```
-
-```
-## Error in eval(expr, envir, enclos): 没有"arrange"这个函数
 ```
 
 equal to
 
 ```r
-pf.fc_by_age <- pf %.%
-  group_by(age) %.%
+pf.fc_by_age <- pf %>%
+  group_by(age) %>%
   summarise(friend_count_mean = mean(friend_count),
             friend_count_median = median(friend_count),
-            n = n()) %.%
+            n = n()) %>%
   arrange(age)
-```
 
-```
-## Error in eval(expr, envir, enclos): 没有"%.%"这个函数
-```
-
-```r
 pf.fc_by_age
 ```
 
 ```
-## Error in eval(expr, envir, enclos): 找不到对象'pf.fc_by_age'
+## Source: local data frame [101 x 4]
+## 
+##    age friend_count_mean friend_count_median    n
+## 1   13          164.7500                74.0  484
+## 2   14          251.3901               132.0 1925
+## 3   15          347.6921               161.0 2618
+## 4   16          351.9371               171.5 3086
+## 5   17          350.3006               156.0 3283
+## 6   18          331.1663               162.0 5196
+## 7   19          333.6921               157.0 4391
+## 8   20          283.4991               135.0 3769
+## 9   21          235.9412               121.0 3671
+## 10  22          211.3948               106.0 3032
+## .. ...               ...                 ...  ...
 ```
 
 # Plot mean friend count vs. age using a line graph.
@@ -166,9 +164,7 @@ ggplot(aes(x = age, y = friend_count_mean), data = pf.fc_by_age)+
   geom_line()
 ```
 
-```
-## Error in ggplot(aes(x = age, y = friend_count_mean), data = pf.fc_by_age): 找不到对象'pf.fc_by_age'
-```
+![plot of chunk Conditional Means Plot](figure/Conditional Means Plot-1.png) 
 
 ### Overlaying Summaries with Raw Data
 
@@ -205,7 +201,7 @@ ggplot(aes(x = age, y = friend_count), data = pf) +
 ```
 
 ```
-## Warning: Removed 5187 rows containing missing values (geom_point).
+## Warning: Removed 5172 rows containing missing values (geom_point).
 ```
 
 ![plot of chunk Overlaying Summaries with Raw Data](figure/Overlaying Summaries with Raw Data-1.png) 
@@ -424,16 +420,22 @@ ggplot(aes(x = age, y = friend_count_mean), data = pf.fc_by_age) +
   geom_line()
 ```
 
-```
-## Error in ggplot(aes(x = age, y = friend_count_mean), data = pf.fc_by_age): 找不到对象'pf.fc_by_age'
-```
+![plot of chunk Age to Age Months](figure/Age to Age Months-1.png) 
 
 ```r
 head(pf.fc_by_age)
 ```
 
 ```
-## Error in head(pf.fc_by_age): 找不到对象'pf.fc_by_age'
+## Source: local data frame [6 x 4]
+## 
+##   age friend_count_mean friend_count_median    n
+## 1  13          164.7500                74.0  484
+## 2  14          251.3901               132.0 1925
+## 3  15          347.6921               161.0 2618
+## 4  16          351.9371               171.5 3086
+## 5  17          350.3006               156.0 3283
+## 6  18          331.1663               162.0 5196
 ```
 
 ```r
@@ -441,7 +443,12 @@ pf.fc_by_age[17:19,]
 ```
 
 ```
-## Error in eval(expr, envir, enclos): 找不到对象'pf.fc_by_age'
+## Source: local data frame [3 x 4]
+## 
+##   age friend_count_mean friend_count_median    n
+## 1  29          120.8182                66.0 1936
+## 2  30          115.2080                67.5 1716
+## 3  31          118.4599                63.0 1694
 ```
 
 ### Age with Months Means
@@ -455,29 +462,28 @@ Programming Assignment
 
 ```r
 age_with_months_groups <- group_by(pf, age_with_months)
-```
-
-```
-## Error in eval(expr, envir, enclos): 没有"group_by"这个函数
-```
-
-```r
 pf.fc_by_age_months <- summarise(age_with_months_groups,
                                  friend_count_mean = mean(friend_count),
                                  friend_count_median = median(friend_count),
                                  n = n())
-```
-
-```
-## Error in eval(expr, envir, enclos): 没有"summarise"这个函数
-```
-
-```r
 arrange(pf.fc_by_age_months, age_with_months)
 ```
 
 ```
-## Error in eval(expr, envir, enclos): 没有"arrange"这个函数
+## Source: local data frame [1,194 x 4]
+## 
+##    age_with_months friend_count_mean friend_count_median   n
+## 1         13.16667          46.33333                30.5   6
+## 2         13.25000         115.07143                23.5  14
+## 3         13.33333         136.20000                44.0  25
+## 4         13.41667         164.24242                72.0  33
+## 5         13.50000         131.17778                66.0  45
+## 6         13.58333         156.81481                64.0  54
+## 7         13.66667         130.06522                75.5  46
+## 8         13.75000         205.82609               122.0  69
+## 9         13.83333         215.67742               111.0  62
+## 10        13.91667         162.28462                71.0 130
+## ..             ...               ...                 ... ...
 ```
 
 ### Noise in Conditional Means
@@ -489,9 +495,7 @@ ggplot(aes(x = age_with_months, y = friend_count_mean),
   geom_line()
 ```
 
-```
-## Error in subset(pf.fc_by_age_months, pf.fc_by_age_months$age_with_months <= : 找不到对象'pf.fc_by_age_months'
-```
+![plot of chunk Noise in Conditional Means](figure/Noise in Conditional Means-1.png) 
 
 ### Smoothing Conditional Means
 
@@ -500,24 +504,12 @@ q1 <- ggplot(aes(x = age, y = friend_count_mean),
             data = subset(pf.fc_by_age, pf.fc_by_age$age <= 71)) +
               geom_line() +
   geom_smooth()
-```
 
-```
-## Error in subset(pf.fc_by_age, pf.fc_by_age$age <= 71): 找不到对象'pf.fc_by_age'
-```
-
-```r
 q2 <- ggplot(aes(x = age_with_months, y = friend_count_mean), 
        data = subset(pf.fc_by_age_months, pf.fc_by_age_months$age_with_months <= 71)) +
   geom_line() + 
   geom_smooth()
-```
 
-```
-## Error in subset(pf.fc_by_age_months, pf.fc_by_age_months$age_with_months <= : 找不到对象'pf.fc_by_age_months'
-```
-
-```r
 q3 <- ggplot(aes(x = round(age/5)*5, y = friend_count),
              data = subset(pf, pf$age <= 71)) +
   geom_line(stat = 'summary', fun.y = mean)
@@ -534,8 +526,11 @@ grid.arrange(q1,q2,q3,ncol = 1)
 ```
 
 ```
-## Error in arrangeGrob(..., as.table = as.table, clip = clip, main = main, : 找不到对象'q1'
+## geom_smooth: method="auto" and size of largest group is <1000, so using loess. Use 'method = x' to change the smoothing method.
+## geom_smooth: method="auto" and size of largest group is <1000, so using loess. Use 'method = x' to change the smoothing method.
 ```
+
+![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png) 
 
 Click **KnitHTML** to see all of your hard work and to have an html
 page of this lesson, your answers, and your notes!

@@ -68,11 +68,11 @@ pf.fc_by_age <- arrange(pf.fc_by_age,age)
 
 equal to
 ```{r}
-pf.fc_by_age <- pf %.%
-  group_by(age) %.%
+pf.fc_by_age <- pf %>%
+  group_by(age) %>%
   summarise(friend_count_mean = mean(friend_count),
             friend_count_median = median(friend_count),
-            n = n()) %.%
+            n = n()) %>%
   arrange(age)
 
 pf.fc_by_age
