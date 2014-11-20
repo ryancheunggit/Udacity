@@ -1,0 +1,147 @@
+Title
+========================================================
+
+## Part I
+How many observations and how many variables in the diamonds dataset?
+
+How many order factors in the variables?
+
+```{r}
+library(ggplot2)
+data(diamonds)
+str(diamonds)
+```
+
+what letters represents the best diamond?
+
+```{r}
+levels(diamonds$color)
+```
+
+## Part II
+Create a histogram of the price of all the diamonds in the diamond data set.
+```{r}
+library(ggthemes) 
+theme_set(theme_minimal(24)) 
+qplot(x = price, data = diamonds)
+```
+
+## Part III
+Describe the shape and center of the price distribution. Include summary statistics  like mean and median
+
+```{r}
+summary(diamonds$price)
+```
+
+Long tail distributed
+
+## Part IV
+How many diamonds cost less than $500,250 or more than 15000
+```{r}
+sum(diamonds$price < 500)
+sum(diamonds$price < 250)
+sum(diamonds$price >= 15000)
+```
+
+
+## Part V
+Explore the largest peak in the price histogram you created earlier.
+
+Try limiting the x-axis, altering the bin width, and setting different breaks on the x-axis.
+
+```{r}
+qplot(x = price, data = diamonds)
+qplot(x = price, data = diamonds, xlim = c(0,2500), binwidth = 100)
+qplot(x = price, data = diamonds, xlim = c(0,2500), binwidth = 200)
+qplot(x = price, data = diamonds, xlim = c(0,2500), binwidth = 500)
+ggsave('priceHistogram.png')
+```
+
+## Part VI
+Which cut has the highest priced dimond?
+```{r}
+qplot(x = price, data = diamonds) + 
+  facet_wrap(~cut)
+
+diamonds$cut[which.max(diamonds$price)]
+diamonds$cut[which.min(diamonds$price)]
+by(diamonds$price, diamonds$cut, summary)
+```
+
+## Part VII
+
+add a parameter to facet_wrap so that the y-axis in the histograms is not fixed. You want the y-axis to be different for each histogram.
+```{r}
+qplot(x = price, data = diamonds) + 
+  facet_wrap(~cut, scales = "free")
+```
+
+## Part VIII
+
+Create a histogram of price per carat and facet it by cut. 
+```{r}
+qplot(x = log10(price/carat+1), data = diamonds, binwidth = 0.3)+
+  facet_wrap(~cut, scales = "free")
+```
+
+## Part IX
+Investigate the price of diamonds using box plots, numerical summaries, and one of the following categorical variables: cut, clarity, or color.
+
+```{r}
+by(diamonds$price, diamonds$cut, summary)
+by(diamonds$price, diamonds$clarity, summary)
+by(diamonds$price, diamonds$color, summary)
+qplot(x = cut, y = price, data = diamonds, geom = 'boxplot')
+qplot(x = clarity, y = price, data = diamonds, geom = 'boxplot')
+qplot(x = color, y = price, data = diamonds, geom = 'boxplot')
+```
+
+
+## Part X
+what is the price range for the middle 50% of diamonds with color D?
+what is the price range for the middle 50% of diamonds with color J?
+what is the IQR for the diamonds with best color?
+what is the IQR for the diamonds with worst color?
+```{r}
+summary(diamonds$price[diamonds$color == "D"])
+summary(diamonds$price[diamonds$color == "J"])
+IQR(diamonds$price[diamonds$color == "D"])
+IQR(diamonds$price[diamonds$color == "J"])
+```
+
+
+## Part XI
+Investigate the price per carat of diamonds across the different colors of diamonds using boxplots.
+
+```{r}
+qplot(x = color, y = price/carat, data = diamonds, geom = 'boxplot')+
+    coord_cartesian(ylim = c(0,6000))
+```
+
+
+## Part XII
+investigate the weight of the diamonds using frequency polygon.
+what carat size has a count greater than 2000?
+```{r}
+qplot(x = carat, data = diamonds,binwidth = 0.1,
+      geom = "freqpoly")+
+  scale_x_continuous(limits = c(0,6), breaks = seq(0,6,0.1))
+
+table(round(diamonds$carat,1))
+```
+
+
+## Part XIII
+
+Which month contains the most number of birthdays?
+How many birthdays are in each month?
+Which day of the year has the most number of birthdays?
+```{r}
+friends <- read.csv('birthdaysExample.csv', stringsAsFactors = F)
+friends$dates <- as.Date(friends$dates, format = "%m/%d/%y")
+friends$months <- months(friends$dates)
+qplot(months, data = friends)
+sort(table(friends$months),decreasing = T)[1]
+sort(table(friends$dates),decreasing = T)[1]
+```
+
