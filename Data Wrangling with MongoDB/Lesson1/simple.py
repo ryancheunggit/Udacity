@@ -19,7 +19,7 @@ import os
 # header = f.readline().split(",")
 # l = f.readline()
 
-DATADIR = "C:\\Users\\Violetta_Chen\\Documents\\Github\\Udacity\\Data Wrangling with MongoDB\Lesson1"
+DATADIR = os.getcwd()
 DATAFILE = "beatles-diskography.csv"
 
 
@@ -36,6 +36,7 @@ def parse_file(datafile):
             for colNumber in range(len(header)):
                 row[header[colNumber].strip()] = content[colNumber].strip()          
             data.append(row)
+            lineNumber += 1
     return data
 
 
