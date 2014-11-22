@@ -38,22 +38,69 @@ def pretty_print(data, indent=4):
 
 
 def main():
+#    results = query_by_name(ARTIST_URL, query_type["simple"], "Nirvana")
+#    pretty_print(results)
+#
+#    artist_id = results["artists"][1]["id"]
+#    print "\nARTIST:"
+#    pretty_print(results["artists"][1])
+#
+#    artist_data = query_site(ARTIST_URL, query_type["releases"], artist_id)
+#    releases = artist_data["releases"]
+#    print "\nONE RELEASE:"
+#    pretty_print(releases[0], indent=2)
+#    release_titles = [r["title"] for r in releases]
+#
+#    print "\nALL TITLES:"
+#    for t in release_titles:
+#        print t
+
+    # question 1 how many bands named "first aid kit"?
+    results = query_by_name(ARTIST_URL, query_type["simple"], "First aid kit")
+    n = 0
+    for i, artist in enumerate(results["artists"]):
+        if artist["name"].lower() == "first aid kit":
+            n += 1
+    print str(n) + ' bands named first aid kit'
+
+    # question 2 begin_area name for queen
+    results = query_by_name(ARTIST_URL, query_type["simple"], "queen")
+    for i, artist in enumerate(results["artists"]):
+        if artist["name"].lower() == "queen":
+            try:
+                print artist["begin-area"]["name"]
+            except:
+                None
+    # spanish alias for beatles?
+    results = query_by_name(ARTIST_URL, query_type["simple"], "beatles")
+    for i, artist in enumerate(results["artists"]):
+        if artist["name"].lower() == "the beatles":
+            for j, aliases in enumerate(artist["aliases"]):
+                if aliases["locale"] == "es":
+                    try:
+                        print aliases["name"]
+                    except:
+                        None
+    # nirvana disambiguation?
     results = query_by_name(ARTIST_URL, query_type["simple"], "Nirvana")
-    pretty_print(results)
-
-    artist_id = results["artists"][1]["id"]
-    print "\nARTIST:"
-    pretty_print(results["artists"][1])
-
-    artist_data = query_site(ARTIST_URL, query_type["releases"], artist_id)
-    releases = artist_data["releases"]
-    print "\nONE RELEASE:"
-    pretty_print(releases[0], indent=2)
-    release_titles = [r["title"] for r in releases]
-
-    print "\nALL TITLES:"
-    for t in release_titles:
-        print t
+    for i, artist in enumerate(results["artists"]):
+        if artist["name"].lower() == "nirvana":
+            try:
+                print artist["disambiguation"]
+            except:
+                None
+    # when was one direction formed?
+    results = query_by_name(ARTIST_URL, query_type["simple"], "one direction")
+    for i, artist in enumerate(results["artists"]):
+        if artist["name"].lower() == "one direction":
+            try:
+                print artist["life-span"]["begin"]
+            except:
+                None    
+            
+    
+    
+        
 
 
 if __name__ == '__main__':
