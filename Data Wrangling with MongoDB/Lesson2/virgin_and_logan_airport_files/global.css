@@ -1,0 +1,669 @@
+
+/* Table styles */
+	.hidden {
+		width:1px;
+		height:1px;
+		overflow:hidden;
+}
+	.largeTABLE {
+	width: 767px;
+	border:none;
+}
+	.mediumTABLE {
+	width: 617px;
+	border-left:1px solid #efefef;
+}
+	.dataTD {
+	border: none;
+	vertical-align : top;
+	padding-top:3px;
+	text-align:left;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	font-weight:300pt;
+	letter-spacing : -0.5px;
+	padding-left:5px;
+	height:22px;
+}
+	.dataTD2 {
+	vertical-align : top;
+	padding-top:3px;
+	text-align:left;
+	background-color:#eee9e9;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	font-weight:300pt;
+	letter-spacing : -0.5px;
+	padding-left:5px;
+	height:20px;
+}
+	.dataTDRight {
+	border: none;
+	vertical-align : top;
+	padding-top: 3px;
+	text-align:right;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	height : 22px;
+	font-weight:300;
+	letter-spacing : -0.5px;
+	padding-left:2px;
+	padding-right : 5px;
+}
+	.dataTDRight2 {
+	vertical-align : top;
+	padding-top:3px;
+	text-align:right;
+	background-color:#eee9e9;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	font-weight:300pt;
+	letter-spacing : -0.5px;
+	padding-left:5px;
+	height:20px;
+}
+	.dataTH {
+	border: none;
+	vertical-align : top;
+	text-align:left;
+	background-color:silver;
+	color : black;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 8.5pt;
+	height : 17;
+	font-weight:500;
+	padding-left:5px;
+	padding-bottom : 3px;
+	padding-right : 3px;
+	padding-top : 3px;
+}
+	.dataTH1 {
+	border: none;
+	vertical-align : top;
+	text-align:left;
+	background-color:#efefef;
+	color : #336699;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 8.5pt;
+	height : 17;
+	font-weight:600;
+	padding-left:5px;
+	padding-bottom : 3px;
+	padding-right : 3px;
+	padding-top : 3px;
+}	
+	.dataTH {
+	border: none;
+	vertical-align : top;
+	text-align:left;
+	background-color:silver;
+	color : black;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 8.5pt;
+	height : 17;
+	font-weight:500;
+	padding-left:5px;
+	padding-bottom : 3px;
+	padding-right : 3px;
+	padding-top : 3px;
+}			
+	.dataTH1 {
+	border: none;
+	vertical-align : top;
+	text-align:left;
+	background-color:#efefef;
+	color : #336699;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 8.5pt;
+	height : 17;
+	font-weight:600;
+	padding-left:5px;
+	padding-bottom : 3px;
+	padding-right : 3px;
+	padding-top : 3px;
+}	
+	.dataTH2 {
+	vertical-align : top;
+	text-align:center;
+	background-color:#efefef;
+	color : #336699;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 8.5pt;
+	height : 17;
+	font-weight:600;
+	padding-left:2px;
+	padding-bottom : 3px;
+	padding-right : 2px;
+	padding-top : 3px;
+}
+
+
+	.dataTH3 {
+	vertical-align : middle;
+	text-align:center;
+	background-color:#cdc9c9;
+	color : #336699;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 8.5pt;
+	height : 17;
+	font-weight:600;
+	padding-left:2px;
+	padding-bottom : 3px;
+	padding-right : 2px;
+	padding-top : 3px;
+}		
+	.topTH1 {
+	text-align : left;
+	vertical-align : middle;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 9pt;
+	font-weight: 800;
+	color : #336699;
+}
+	.topTH2 {
+	text-align : left;
+	vertical-align : middle;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	font-weight: 800;
+	height : 18px;
+	padding-left:5px;
+	color : #336699;
+}
+	.topTHRight {
+	text-align : right;
+	padding-right:15px;
+	vertical-align : middle;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 9pt;
+	font-weight: 800;
+	color : #336699;
+	height : 18px;
+}
+	.topMenu {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 9pt;
+	font-weight : 800;
+	text-decoration : none;
+	vertical-align:middle;
+	color:#000000;
+}
+	.topMenuActive {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 9pt;
+	font-weight : 800;
+	color : #336699;
+	text-decoration : none;
+	vertical-align:middle;
+}
+	.topMenu2 {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	font-weight : 800;
+	text-decoration : none;
+	vertical-align:middle;
+	color:#000000;
+	
+}
+	.topMenu2Active {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	font-weight : 800;
+	color : #336699;
+	text-decoration : none;
+	vertical-align:middle;
+	
+}
+	.sidebarTABLE{
+	width:150;
+	border-right: 1px solid #E6E6E4;
+	padding: 0px;
+	vertical-align: top;
+	
+}
+	.sidebarTH {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 10pt;
+	font-weight :800;
+	text-align : left;
+	height : 25px;
+	padding-left : 10px;
+	vertical-align : middle;
+	border : none;
+	letter-spacing : 0.2px;
+	background-color:#DFDFDF;
+	border-top:1px solid gray;
+	border-bottom:1px solid gray;
+}	
+	.sidebarTH2 {
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	font-weight : 800;
+	text-align : left;
+	padding-left : 10px;
+	vertical-align : middle;
+	background-color:#F2F2F2;
+}
+	.sidebarTD {
+	border: none;
+	line-height:15px;
+	padding-left : 10px;
+	vertical-align : middle;
+}
+	.sidebarTD2 {
+	border: none;
+	line-height:12px;
+	padding-left : 10px;
+	vertical-align : middle;
+}
+	.sidebarLink{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	font-weight:300;
+	color: #000000;
+	text-decoration : none;
+	background-color:#EFEFEF;
+	padding-left:15px;
+	border:2px solid #EFEFEF;
+}
+	.sidebarLinkActive{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 8pt; 
+	color : #000000;
+	font-weight : 400;
+	text-decoration : none;
+	background-color:#E6E6E4;
+	padding-top:1px;
+	padding-bottom:1px;
+	padding-left:15px;
+	border:2px outset white;
+}
+ 	.otherLink{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	font-weight:300;
+	color: #000000;
+	text-decoration : none;
+}
+	.otherLinkActive{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 8pt; 
+	color : #0000FF;
+	font-weight : 400;
+	text-decoration : underline;
+}
+	.libraryTD {
+	border:0;
+	padding-left : 10px;
+	padding-bottom : 0px;
+	padding-right : 2px;
+	padding-top : 0px;
+	width : 130px;
+	vertical-align : middle;
+	color:#336699;
+}
+	.libraryTH {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 11pt;
+	font-weight : 800;
+	background-color : #336699;
+	color: #ffffff;
+	text-align : left;
+	height : 22px;
+	padding-left:10px;
+	padding-bottom : 2px;
+	padding-right : 2px;
+	padding-top : 2px;
+	vertical-align : middle;
+	border : none;
+	letter-spacing : 0.2px;
+	word-spacing : 1px;
+}
+	.libraryTH2{
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 9pt;
+	font-weight : 800;
+	background-color : #336699;
+	color: #ffffff;
+	text-align : left;
+	height : 18px;
+	padding-left:5px;
+	padding-bottom : 2px;
+	padding-right : 2px;
+	padding-top : 2px;
+	vertical-align : middle;
+	border : none;
+	letter-spacing : 0.2px;
+	word-spacing : 1px;
+}
+	.libraryTHY{
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 9pt;
+	font-weight : 700;
+	background-color : #efefef;
+	text-align : left;
+	height : 20;
+	padding-left:10px;
+	padding-bottom : 2px;
+	padding-right : 2px;
+	padding-top : 2px;
+	font-stretch : wider;
+	vertical-align : middle;
+	border : none;
+}
+	.libraryTHY2{
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 9pt;
+	font-weight : 700;
+	color: #FFFFFF;
+	background-color : #5D95C9;
+	text-align : left;
+	height : 20;
+	padding-left:10px;
+	padding-bottom : 2px;
+	padding-right : 2px;
+	padding-top : 2px;
+	font-stretch : wider;
+	vertical-align : middle;
+	border : none;
+}
+.libraryTHY2_Center{
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 9pt;
+	font-weight : 700;
+	color: #FFFFFF;
+	background-color : #5D95C9;
+	text-align : center;
+	height : 20;
+	padding-left:10px;
+	padding-bottom : 2px;
+	padding-right : 2px;
+	padding-top : 2px;
+	font-stretch : wider;
+	vertical-align : middle;
+	border : none;
+}
+	.menuLink{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 8.5pt; 
+	font-weight:200;
+	color : #0000FF;
+	text-decoration : none;
+}
+	.menuLinkCAP{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 7.5pt; 
+	font-weight:200;
+	color : #0000FF;
+	text-decoration : none;
+}
+	.menuLinkActive{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 8.5pt; 
+	color : blue;
+	font-weight : 400;
+	text-decoration : underline;
+}
+	.menuLinkCAPActive{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 7.5pt; 
+	color : blue;
+	font-weight : 400;
+	text-decoration : underline;
+}
+	.tabheadon
+{
+	font-family : Geneva, Arial,Verdana, Helvetica, sans-serif;
+	font-size : 8pt; 
+	letter-spacing: 0.5px;
+	color : black;
+	font-weight : 800;
+	text-align:center;
+	vertical-align:bottom;
+	padding-bottom:4px;
+	border-right:1px solid gray;
+	background-color:#efefef;
+}
+	.tabheadoff
+{
+	font-family : Geneva, Arial,Verdana, Helvetica, sans-serif;
+	font-size : 8pt; 
+	letter-spacing: 0px;
+	color : gray;
+	font-weight : 800;
+	text-align:center;
+	vertical-align:bottom;
+	padding-bottom:4px;
+	border-right:1px solid gray;
+	border-bottom:1px solid gray;
+	background-color:#f7f7f7;
+}
+	.hspacing
+{
+	vertical-align : top;
+	height:5px;
+}
+	.grayTR{
+	background-color : #efefef;	
+}
+
+/* Footer */		
+	.finePrint {
+	font-size: 7pt;
+	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
+	font-weight: 200;
+	letter-spacing : -0.2px;
+}
+
+/* Body Text */
+
+	.title {
+	font-size: 14pt;
+	line-height: 50px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: 800;
+	text-align: left;
+	padding-left:20px;
+}
+	.bodyProfile { 
+	font-size: 9pt; 
+	line-height: 17px; 
+	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
+	font-weight: 250; 
+	padding: 20px;
+}
+	.profileLIST {
+	font-size: 9pt;
+	line-height: 17px;
+	font-family: Verdana, Geneva, Helvetica, Arial, Times, sans-serif;
+	font-weight: 250;
+	padding-left: 5px;
+	list-style: square inside;
+	margin-top:0px;
+	margin-bottom:0px;
+	margin-left : 10px;
+}
+
+	.body { 
+	font-size: 8.5pt; 
+	line-height: 17px; 
+	font-family: Verdana, Geneva, Helvetica, Arial, Times, sans-serif; 
+	font-weight: 250; 
+	padding-left: 10px;
+	padding-right:10px;
+}
+	.bodyFirst { 
+	font-size: 8.5pt; 
+	line-height: 17px; 
+	font-family: Verdana, Geneva, Helvetica, Arial, Times, sans-serif; 
+	font-weight: 250; 
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+}
+	.bodyLast { 
+	font-size: 8.5pt; 
+	line-height: 17px; 
+	font-family: Verdana, Geneva, Helvetica, Arial, Times, sans-serif; 
+	font-weight: 250; 
+	padding-left: 10px;
+	padding-right: 10px;
+	Padding-bottom: 10px;
+}
+	.bodyLIST {
+	font-size: 8.5pt;
+	line-height: 17px;
+	font-family: Verdana, Geneva, Helvetica, Arial, Times, sans-serif;
+	font-weight: 250;
+	padding-left: 10px;
+	list-style: disc;
+	margin-top:0px;
+	margin-bottom:0px;
+}
+	.bodyOrderedLIST {
+	font-size: 8.5pt;
+	line-height: 17px;
+	font-family: Verdana, Geneva, Helvetica, Arial, Times, sans-serif;
+	font-weight: 250;
+	padding-left: 10px;
+	list-style: decimal;
+	margin-top:0px;
+	margin-bottom:0px;
+}
+	.slcBox {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:8pt;
+	width:110px;
+	height: auto;
+	vertical-align:middle;
+	text-align:left;
+	font-weight:400;
+}
+	.tsslcLbl {
+	font-family: Verdana, Geneva, Helvetica, Arial, Times, sans-serif;
+	font-size:8pt;
+	color: #000000;
+	font-weight: 400;
+	vertical-align: bottom;
+	text-align:left;
+	text-decoration:none;
+	letter-spacing:-0.1px;
+	padding-right:0px;
+	cursor:help;
+}
+	.slcLblActive {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:8pt;
+	color: #0000FF;
+	font-weight: 400;
+	vertical-align: bottom;
+	text-align:left;
+	letter-spacing:1px;
+	padding-right:0px;
+	cursor:help;
+}
+	.helpTABLE {
+	width:440;
+	padding:5px;
+}
+	.helpTH {
+	border: none;
+	vertical-align : middle;
+	text-align:left;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 9pt;
+	height : 20;
+	font-weight:800;
+	padding:5px;
+}
+	.helpTD {
+	border: none;
+	vertical-align : top;
+	text-align:left;
+	font-family : Verdana, Geneva, Helvetica, Arial, Times, sans-serif;
+	font-size : 8pt;
+	font-weight:300;
+	padding-left:5px;
+	line-height:15px;
+}
+	.helpLIST {
+	list-style : decimal outside url(/images/helparrow.gif);
+	margin-top:2px;
+	margin-bottom:2px
+}
+
+	strong{
+	font-weight:600;
+	color:#336699;
+}
+
+	.tsbutton {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight:600;
+	font-size:8pt;
+	vertical-align : top;
+	text-align: center;
+	letter-spacing:0.5px
+}
+	 .popup {
+	color: #000000;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 9;
+	font-weight : 500;
+	width: 150;
+	border : thin solid #EBE8E7;
+	background-color : InfoBackground;
+	padding : 2px 2px 2px 2px;
+	visibility : visible;
+	z-index:12;
+}
+
+	 .popupHidden {
+	position:absolute;
+	color: #000000;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 9;
+	font-weight : 500;
+	width: 150;
+	border : thin solid #EBE8E7;
+	background-color : InfoBackground;
+	padding : 2px 2px 2px 2px;
+	visibility : hidden;
+	z-index:2000;
+	text-align:left;
+}
+	.popupSide {
+	position:absolute;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 9;
+	text-align:left;
+	font-weight: 500;
+	width: 100;
+	border : 1px solid black;
+	background-color : #DFDFDF;
+	padding : 2px 2px 2px 2px;
+	visibility : hidden;
+	z-index:0;
+}
+	.popupMenu {
+	position: relative;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : xx-small;
+	font-weight: 500;
+	border : 1px solid silver ;
+	background-color : #EBE8E7;
+	padding : 2px 2px 2px 2px;
+	visibility : hidden;
+	z-index:0;
+	letter-spacing : -0.5px;
+	left : 15px;
+	width : 480px;
+}
+
+	.popupLink{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 7pt;
+	font-weight:300;
+	color: #000000;
+	text-decoration : none;
+}

@@ -1,0 +1,388 @@
+/******************************************************/
+/********* MAKE CHANGES ONLY WHERE MENTIONNED *********/
+/******************************************************/
+
+
+/****************** for local navigation bar only ****************/
+
+
+/**************************************************************************************************************/
+/*********** green gradient square tabs  *************/
+/**************************************************************************************************************/
+
+.topNavigationLocalGreen ul {
+
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	}
+
+/* Top level list items */
+
+.topNavigationLocalGreen ul li {
+
+	position: relative;
+	display: inline;
+	float: left;
+	}
+
+
+/* Top level menu link items style */
+
+.topNavigationLocalGreen ul li a {
+
+	display: block;
+	width: 149px;       /* change the width according to the number of menus and the width of the main table and taking into account padding */
+	padding: 5px 0px 5px 0px;
+	border-right: 1px solid #498a1b;
+	border-top: 1px solid #498a1b;
+	border-bottom: 1px solid #498a1b;
+	border-left-width: 0;
+	text-decoration: none;
+	background: #b5b5b5;
+	font: bold 12px Tahoma;
+	line-height: 10px;
+	text-align: center;
+	}
+	
+/* Sub level menu */
+
+.topNavigationLocalGreen ul li ul {
+
+	left: 0;
+	top: 0;
+	border-top: 1px solid #74bf41;
+	position: absolute;
+	display: block;
+	visibility: hidden;
+	z-index: 100;
+	}
+
+/* Sub level menu list items */
+
+.topNavigationLocalGreen ul li ul li {
+
+	display: inline;
+	float: none;
+	}
+
+
+/* Sub level menu links style */
+
+.topNavigationLocalGreen ul li ul li a {
+
+	width: 145px;       /* change the width according to the width of the top menu width and taking into account padding */
+	font-weight: normal;
+	text-align: left;
+	padding: 5px 0px 5px 3px;
+	background: #ebf0f6;
+	border-width: 0 1px 1px 1px;
+	border-style: solid;
+	line-height: 14px;
+	border-color: #74bf41;
+	}
+
+
+.topNavigationLocalGreen ul li a:link {
+
+	background: url(../images/top_nav_green.jpg);
+	text-decoration: none;
+	color: #ffffff;
+	}
+
+.topNavigationLocalGreen ul li a:visited {
+
+	background: url(../images/top_nav_green.jpg);
+	text-decoration: none;
+	color: #ffffff;
+	}
+
+.topNavigationLocalGreen ul li a:hover {
+
+	background: url(../images/top_nav_green.jpg);
+	text-decoration: underline;
+	color: #ffffff;
+	}
+
+.topNavigationLocalGreen ul li ul li a:link {
+
+	background: #5a9f29;
+	text-decoration: none;
+	color: #ffffff;
+	}
+
+.topNavigationLocalGreen ul li ul li a:visited {
+
+	background: #5a9f29;
+	text-decoration: none;
+	color: #ffffff;
+	}
+
+.topNavigationLocalGreen ul li ul li a:hover {
+
+	background: #5a9f29; 
+	text-decoration: underline;
+	color: #ffffff;
+	}
+
+.topNavigationLocalGreen .arrowdiv {
+
+	position: absolute;
+	right: -4px;
+	background: transparent url(../images/topNavArrowWhite.gif);
+	background-repeat: no-repeat;
+	top: 9px;
+	}
+
+/**************************************************************************************************************/
+/************ tabs with 2 lines *************/
+/**************************************************************************************************************/
+
+.topNavLocalGreenTwoLine ul {
+
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	}
+
+/*Top level list items*/
+
+.topNavLocalGreenTwoLine ul li {
+
+	position: relative;
+	display: inline;
+	float: left;
+	}
+
+
+/*Top level menu link items style*/
+
+.topNavLocalGreenTwoLine ul li a {
+
+	display: block;
+	width: 224px;       /* change the width according to the number of menus and the width of the main table and taking into account padding */
+	padding: 1px 0px 1px 0px;
+	border-right: 1px solid #498a1b;
+	border-top: 1px solid #498a1b;
+	border-bottom: 1px solid #498a1b;
+	border-left-width: 0;
+	text-decoration: none;
+	background: #b5b5b5;
+	font: bold 11px Tahoma;   /* if the title of the menu is still too long on two lines change the font size to 10 */
+	line-height: 9px;
+	text-align: center;
+	}
+	
+/*Sub level menu*/
+
+.topNavLocalGreenTwoLine ul li ul {
+
+	left: 0;
+	top: 0;
+	border-top: 1px solid #74bf41;
+	position: absolute;
+	display: block;
+	visibility: hidden;
+	z-index: 100;
+	}
+
+/*Sub level menu list items*/
+
+.topNavLocalGreenTwoLine ul li ul li {
+
+	display: inline;
+	float: none;
+	}
+
+
+/* Sub level menu links style */
+
+.topNavLocalGreenTwoLine ul li ul li a {
+
+	width: 220px;       /* change the width according to the width of the top menu width and taking into account padding */
+	font-weight: normal;
+	text-align: left;
+	padding: 5px 0px 5px 3px;
+	background: #ebf0f6;
+	border-width: 0 1px 1px 1px;
+	border-style: solid;
+	line-height: 14px;
+	border-color: #74bf41;
+	}
+
+
+.topNavLocalGreenTwoLine ul li a:link {
+
+	background: url(../images/top_nav_green.jpg);
+	text-decoration: none;
+	color: #ffffff;
+	}
+
+.topNavLocalGreenTwoLine ul li a:visited {
+
+	background: url(../images/top_nav_green.jpg);
+	text-decoration: none;
+	color: #ffffff;
+	}
+
+.topNavLocalGreenTwoLine ul li a:hover {
+
+	background: url(../images/top_nav_green.jpg);
+	text-decoration: underline;
+	color: #ffffff;
+	}
+
+.topNavLocalGreenTwoLine ul li ul li a:link {
+
+	background: #5a9f29;
+	text-decoration: none;
+	color: #ffffff;
+	}
+
+.topNavLocalGreenTwoLine ul li ul li a:visited {
+
+	background: #5a9f29;
+	text-decoration: none;
+	color: #ffffff;
+	}
+
+.topNavLocalGreenTwoLine ul li ul li a:hover {
+
+	background: #5a9f29; 
+	text-decoration: underline;
+	color: #ffffff;
+	}
+
+.topNavLocalGreenTwoLine .arrowdiv {
+
+	position: absolute;
+	right: 0px;
+	background: transparent url(../images/topNavArrowWhite.gif);
+	background-repeat: no-repeat;
+	top: 9px;
+	}
+
+
+
+/**************************************************************************************************************/
+/*********** if the total of tabs does not fit the width of top nav bar *************/
+/*********** have all tabs but the last one with the same width *************/
+/*********** use this class to adjust the width the last far right tab *************/
+/**************************************************************************************************************/
+
+.topNavigationLocalGreenEnd ul {
+
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	}
+
+/*Top level list items*/
+
+.topNavigationLocalGreenEnd ul li {
+
+	position: relative;
+	display: inline;
+	float: left;
+	}
+
+
+/*Top level menu link items style*/
+
+.topNavigationLocalGreenEnd ul li a {
+
+	display: block;
+	width: 149px;       /* change the width to compensate the lack or excess of pixels needed to fit the far right tab */
+	padding: 5px 0px 5px 0px;
+	border-right: 1px solid #498a1b;
+	border-top: 1px solid #498a1b;
+	border-bottom: 1px solid #498a1b;
+	border-left-width: 0;
+	text-decoration: none;
+	background: #b5b5b5;
+	font: bold 11px Tahoma;
+	line-height: 10px;
+	text-align: center;
+	}
+	
+/*Sub level menu*/
+
+.topNavigationLocalGreenEnd ul li ul {
+
+	left: 0;
+	top: 0;
+	border-top: 1px solid #74bf41;
+	position: absolute;
+	display: block;
+	visibility: hidden;
+	z-index: 100;
+	}
+
+/*Sub level menu list items*/
+
+.topNavigationLocalGreenEnd ul li ul li {
+
+	display: inline;
+	float: none;
+	}
+
+
+/* Sub level menu links style */
+
+.topNavigationLocalGreenEnd ul li ul li a {
+
+	width: 145px;       /* change the width according to the width of the top menu width and taking into account padding */
+	font-weight: normal;
+	text-align: left;
+	padding: 5px 0px 5px 3px;
+	background: #ebf0f6;
+	border-width: 0 1px 1px 1px;
+	border-style: solid;
+	line-height: 14px;
+	border-color: #74bf41;
+	}
+
+
+.topNavigationLocalGreenEnd ul li a:link {
+
+	background: url(../images/top_nav_green.jpg);
+	text-decoration: none;
+	color: #ffffff;
+	}
+
+.topNavigationLocalGreenEnd ul li a:visited {
+
+	background: url(../images/top_nav_green.jpg);
+	text-decoration: none;
+	color: #ffffff;
+	}
+
+.topNavigationLocalGreenEnd ul li a:hover {
+
+	background: url(../images/top_nav_green.jpg);
+	text-decoration: underline;
+	color: #ffffff;
+	}
+
+.topNavigationLocalGreenEnd ul li ul li a:link {
+
+	background: #5a9f29;
+	text-decoration: none;
+	color: #ffffff;
+	}
+
+.topNavigationLocalGreenEnd ul li ul li a:hover {
+
+	background: #5a9f29; 
+	text-decoration: underline;
+	color: #ffffff;
+	}
+
+.topNavigationLocalGreenEnd .arrowdiv {
+
+	position: absolute;
+	right: 0;
+	background: transparent url(../images/topNavArrowWhite.gif);
+	background-repeat: no-repeat;
+	top: 9px;
+	}

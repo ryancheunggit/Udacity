@@ -1,0 +1,3440 @@
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+/* YOU MUST LINK TO THE MASTER CSS ON THE RITA PRODUCTION SERVER. HAVE A LOCAL COPY ONLY AS A BACKUP IF RITA SERVER IS DOWN */
+/* THIS CSS IS MAINTAINED BY RITA/BTS OIT AND ALL CHANGE REQUESTS MUST BE SENT TO RITA/BTS OIT. */
+/* THIS CSS BASED ON THE ONE FROM THE BTS WEBSITE AND SEVERAL OF THE CLASSES ARE USED IN THE RITA 2007 REDESIGN. */
+/* SOME OF THE CLASSES ARE UNIQUE TO THE BTS WEBSITE BECAUSE BTS PUBLISHES A LOT OF COMPLEX, DATA TABLES. */
+/* THE CLASSES FOR COMMON HTML TAGS TYPICALLY FOUND IN TEXT PAGES SHOULD MEET YOUR NEEDS. */
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+
+
+html { height: 101%; }
+
+body { 
+
+	background-color: #ffffff;
+	background-image: url(../images/main_background.jpg);
+	background-repeat: repeat-x; 
+	color: #000000;
+	font-family: arial, helvetica, sans-serif; 
+	margin-top: 0px;
+	margin-left: 0px;
+	
+	}
+	
+/**************************************************************************************************************/
+/* class to change background color to white in body for print page  */
+/**************************************************************************************************************/
+		
+		.printPageBgcolor { 
+		background-color: #ffffff;
+		margin-left: 2px;
+		
+		}
+		
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+/************************** NEW CLASSES SECTION FOR SEPTEMBER 2008/FEBRUARY 2010 REDESIGN *********************/
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+
+
+#majorContainer {
+         position:relative;
+         margin-left:auto;
+         width: 904px;
+         margin-right:auto;
+}
+
+
+
+/**************************************************************************************************************/
+/* classes for top banner  */
+/**************************************************************************************************************/
+
+
+
+#outerContainer {
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:904px;
+	height:auto;
+	z-index:100;
+}
+
+
+#banner {
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:904px;
+	height:68px;
+	z-index:1;
+}
+
+#bannerContainer {
+	width:560px;
+	height:68px;
+	margin-left:2px;
+}
+
+#searchContainer {
+	position:absolute;
+	width:auto;
+	height:30px;
+	right:0px;
+	top:28px;
+	
+}
+
+#ritaTopLinks {
+	position:absolute;
+	width:350px;
+	height:20px;
+	right:0px;
+	top:2px;
+	color: #ffffff;		
+	font-family: arial, verdana, helvetica;		
+	font-size: 68%;
+	text-align:right;
+		}
+		
+#ritaTopLinks a:visited {color:#ffffff;}		
+#ritaTopLinks a:link {color:#ffffff;}		
+#ritaTopLinks a:hover {color:#ffffff;}
+
+/**************************************************************************************************************/
+/* classes for text field and search button  */
+/**************************************************************************************************************/
+
+input {
+    font-family: Arial;
+    font-size: 70%;
+	font-weight: normal;
+	color: #000000;
+}
+
+input.text {
+	border: 1px solid #00397e;
+}
+
+/**************************************************************************************************************/
+/* classes container hosting top navigation bar  */
+/**************************************************************************************************************/
+
+
+#topnav {
+	position:absolute;
+	left:-1px;
+	right:-1px;
+	top:-72px;
+	width:auto;
+	height:77px;
+	border-right:1px solid #cccccc;
+	border-left:1px solid #cccccc;
+	background:#FFFFFF;
+	z-index:9;
+}
+
+.topNavBarRita {
+            
+       margin-top:6px;
+	   background: #498a1b;
+  
+	   }
+
+/**************************************************************************************************************/
+/* classes for breadcrumbs and print icon  */
+/**************************************************************************************************************/
+
+.topBcrumbs {
+            
+       margin-top:31px;
+	   margin-left:5px;
+	   font-size: 65%;
+	   font-family: verdana, arial, helvetica;
+       }
+
+  
+
+.topPrint {
+            
+       margin-top:10px;
+	   margin-left:5px;
+       }
+
+/**************************************************************************************************************/
+/* classes container with gray top and side bordered box hosting content  */
+/**************************************************************************************************************/
+
+
+#mainContentContainer {
+	position:absolute;
+	left:2px;
+	top:140px;
+	width:auto;
+	height:auto;
+	border-right:1px solid #cccccc;
+	border-bottom:1px solid #cccccc;
+	border-left:1px solid #cccccc;
+	padding:5px;
+	background:#FFFFFF;
+	z-index:1;
+}
+
+div.topCorners {
+        width:5px;
+		height:5px;
+        position:absolute;
+        top:5px;
+        padding-left:0px;
+        padding-right:0px;
+}
+
+#topGrayLine {
+        margin-left: 10px;
+	margin-top:7px;
+	margin-right:10px;
+	background: url(../images/box_top_gray.gif)  repeat-x top;
+	height:5px;
+}
+
+
+#topLeftGrayCorner {
+        left:5px;
+	background: url(../images/box_round_top_left_gray.gif)  no-repeat top left;
+}
+
+#topRightGrayCorner {
+        right:5px;
+	background: url(../images/box_round_top_right_gray.gif)  no-repeat top right;
+}
+
+#content {
+        width:auto;
+	margin-left: 0px;
+        border-right:1px solid #cccccc;
+	border-left:1px solid #cccccc;
+	border-top:0px solid #ffffff;
+	border-bottom:0px solid #ffffff;
+	padding:5px 5px 5px 5px;
+}
+
+
+/**************************************************************************************************************/
+/* classes for gray bottom corners box hosting content  */
+/**************************************************************************************************************/
+
+
+div.bottomCorners {
+        width:5px;
+		height:5px;
+        position:absolute;
+        
+}
+
+#bottomGrayLine {
+	left: 5px;
+	right:10px;
+	margin-top:0px;
+	background: url(../images/box_bottom_gray.gif)  repeat-x bottom;
+	
+}
+
+div.bottomLine {
+        position:absolute;
+	height:5px;
+}
+
+#bottomLeftGrayCorner {
+        left:5px;
+		background: url(../images/box_round_bottom_left_gray.gif)  no-repeat top left;
+}
+#bottomRightGrayCorner {
+        right:5px;
+		background: url(../images/box_round_bottom_right_gray.gif)  no-repeat top right;
+}
+
+
+#footerContainer { width:890px; }
+
+/**************************************************************************************************************/
+/* top of page rita navigation links for offices pages */
+/**************************************************************************************************************/
+
+
+	     .topLink { 		
+		color: #ffffff;		
+		font-family: arial, verdana, helvetica;		
+		font-size: 71%;				
+		}
+		
+		.topLink a:visited {color:#ffffff;}		
+		.topLink a:link {color:#ffffff;}		
+		.topLink a:hover {color:#ffffff;}
+
+
+/**************************************************************************************************************/
+/* class for sliding images in product */
+/**************************************************************************************************************/
+
+
+.stepcarousel{
+position: relative; /*leave this value alone*/
+border: 1px solid #000000;
+overflow: scroll; /*leave this value alone*/
+width: 437px; /*Width of Carousel Viewer itself*/
+height: 220px; /*Height should enough to fit largest content's height*/
+}
+
+.stepcarousel .belt{
+position: absolute; /*leave this value alone*/
+left: 0;
+top: 0;
+}
+
+.stepcarousel .panel{
+float: left; /*leave this value alone*/
+overflow: hidden; /*clip content that go outside dimensions of holding panel DIV*/
+margin: 10px; /*margin around each panel*/
+width: 132px; /* Width of each panel holding each content. If removed, widths should be individually defined on each content DIV then. */
+font-family: Arial, Helvetica, sans-serif;
+font-size: 75%;
+}
+
+
+/**************************************************************************************************************/
+/* background for h4 titles */
+/**************************************************************************************************************/
+
+.titleHome {
+            
+       margin-top: 0px;  /* firefox gives too much top margin so it has to be set to 0 to display like ie */
+       background: url(../images/title_background.gif);
+       }
+       
+.titleHomeBlue {
+            
+       margin-top: 0px;  /* firefox gives too much top margin so it has to be set to 0 to display like ie */
+       background: url(../images/title_background_blue.gif);
+       }
+       
+.titleBox {
+            
+       margin-top: 0px;  /* firefox gives too much top margin so it has to be set to 0 to display like ie */
+       background: url(../images/title_box_bckgnd.jpg);
+       }
+
+.titleHomeOrange {
+            
+       margin-top: 0px;  /* firefox gives too much top margin so it has to be set to 0 to display like ie */
+       background: url(../images/title_bckgnd_orange.jpg);
+       }
+
+.titleGrey {
+            
+       margin-top: 0px;  /* firefox gives too much top margin so it has to be set to 0 to display like ie */
+       background: url(../images/h4_grey.jpg);
+       }
+
+.titleRed {
+            
+       margin-top: 0px;  /* firefox gives too much top margin so it has to be set to 0 to display like ie */
+       background: url(../images/h4_red.jpg);
+       }
+
+.titleBlue {
+            
+       margin-top: 0px;  /* firefox gives too much top margin so it has to be set to 0 to display like ie */
+       background: url(../images/h4_blue.jpg);
+       }
+
+.titleGreen {
+            
+       margin-top: 0px;  /* firefox gives too much top margin so it has to be set to 0 to display like ie */
+       background: url(../images/h4_green.jpg);
+       }
+
+.titlePurple {
+            
+       margin-top: 0px;  /* firefox gives too much top margin so it has to be set to 0 to display like ie */
+       background: url(../images/h4_purple.jpg);
+       }
+
+.titleOrange {
+            
+       margin-top: 0px;  /* firefox gives too much top margin so it has to be set to 0 to display like ie */
+       background: url(../images/h4_orange.jpg);
+       }
+
+.titlePlainBlue {
+            
+       background-color: #086ca1;
+       color: #ffffff;
+       padding :0px 0px 5px 0px;
+       font: bold 14px Arial;
+       }
+
+.titlePlainBlueLight {
+            
+       background-color: #1986af;
+       color: #ffffff;
+       padding :0px 0px 5px 0px;
+       font: bold 14px Arial;
+       }
+
+
+/**************************************************************************************************************/
+/* background images for boxes hosting pictures */
+/**************************************************************************************************************/
+
+
+.backgroundBoxBottom {
+            
+       background: url(../images/image_box_bottom.gif);
+       }
+
+.backgroundBoxBottomLeft {
+            
+       background: url(../images/image_box_bottom_left.gif);
+       }
+
+
+.backgroundBoxBottomRight {
+            
+       background: url(../images/image_box_bottom_right.gif);
+       }
+
+
+.backgroundBoxLeft {
+            
+       background: url(../images/image_box_left.gif);
+       }
+
+
+.backgroundBoxRight {
+            
+       background: url(../images/image_box_right.gif);
+       }
+
+
+.backgroundBoxTop {
+            
+       background: url(../images/image_box_top.gif);
+       }
+
+
+.backgroundBoxTopLeft {
+            
+       background: url(../images/image_box_top_left.gif);
+       }
+
+
+.backgroundBoxTopRight {
+            
+       background: url(../images/image_box_top_right.gif);
+       }
+
+
+
+/**************************************************************************************************************/
+/* background color for table hosting top navigation and content */
+/**************************************************************************************************************/
+
+.tableWhiteBackground {
+            
+       background-color: #ffffff;
+       }
+
+
+/**************************************************************************************************************/
+/* white background color for table hosting main content */
+/**************************************************************************************************************/
+
+.tableMainContent {
+            
+       background-color: #ffffff;
+       }
+
+/**************************************************************************************************************/
+/* NEW background images corners and sides with 1 line for boxes and pages, and top blue color for boxes */
+/**************************************************************************************************************/
+
+
+.flashBackground {
+            
+       background: url(../images/flash_background.gif); /* image for flash background */
+       }
+
+.flashBackgroundTwo {
+            
+       background: url(../images/flash_background2.gif); /* image for flash background */
+       }
+
+
+.boxTopLeftGrayCorner {
+            
+       background: url(../images/box_round_top_left_gray.gif); /* top left gray corner */
+       width: 5px;
+       height: 5px;
+       }
+
+.boxTopGray {
+            
+       background: url(../images/box_top_gray.gif); /* top gray line */
+       height: 5px;
+       }
+
+.boxTopRightGrayCorner {
+            
+       background: url(../images/box_round_top_right_gray.gif); /* top right corner */
+       width: 5px;
+       height: 5px;
+       }
+
+.boxRightGray {
+            
+       background: url(../images/box_right_side_gray.gif); /* right line */
+       width: 5px;
+       }
+
+
+.boxLeftGray {
+            
+       background: url(../images/box_left_side_gray.gif); /* left line */
+       width: 5px;
+       }
+
+.boxBottomLeftGrayCorner {
+            
+       background: url(../images/box_round_bottom_left_gray.gif); /* bottom left corner */
+       width: 5px;
+       height: 5px;
+       }
+
+
+.boxBottomGray {
+            
+       background: url(../images/box_bottom_gray.gif); /* bottom gray line */
+       height: 5px;
+       }
+
+
+.boxBottomRightGrayCorner {
+            
+       background: url(../images/box_round_bottom_right_gray.gif); /* bottom right corner */
+       width: 5px;
+       height: 5px;
+       }
+
+
+.boxTopBlue {
+            
+       background: url(../images/box_top_blue.gif); /* top box with blue color */
+       height: 5px;
+       }
+
+.boxRightSideBlue {
+            
+       background: url(../images/box_right_side_blue.gif); /* right blue top box side */
+       width: 5px;
+       height: 1px;
+       }
+
+.boxLeftSideBlue {
+            
+       background: url(../images/box_left_side_blue.gif); /* left blue top box side */
+       width: 5px;
+       height: 5px;
+       }
+ 
+.boxTopLeftBlueCorner {
+             
+        background: url(../images/box_round_top_left_blue.gif); /* left blue round top box */
+        width: 5px;
+        height: 5px;
+       }
+ 
+.boxTopRighttBlueCorner {
+              
+         background: url(../images/box_round_top_right_blue.gif); /* right blue round top box */
+         width: 5px;
+         height: 5px;
+       }
+ 
+        
+       
+       
+/**************************************************************************************************************/
+/* background images corners and sides for old boxes and pages */
+/**************************************************************************************************************/
+
+
+.homepageBox {
+            
+       background-color: #ffffff;
+       }
+
+
+
+.topLeftCorner {
+            
+       background: url(../images/top_left.gif); /* top left corner */
+       width: 5px;
+       height: 5px;
+       }
+
+.boxTop {
+            
+       background: url(../images/box_top.gif); /* top lines */
+       height: 5px;
+       }
+
+.topRightCorner {
+            
+       background: url(../images/top_right.gif); /* top right corner */
+       width: 5px;
+       height: 5px;
+       }
+
+.boxRight {
+            
+       background: url(../images/box_right.gif); /* right lines */
+       width: 5px;
+       height: 5px;
+       }
+
+
+.boxLeft {
+            
+       background: url(../images/box_left.gif); /* left lines */
+       width: 5px;
+       height: 5px;
+       }
+
+.bottomLeftCorner {
+            
+       background: url(../images/bottom_left.gif); /* bottom left corner */
+       width: 5px;
+       height: 5px;
+       }
+
+
+.boxBottom {
+            
+       background: url(../images/box_bottom.gif); /* bottom lines */
+       height: 5px;
+       }
+
+
+.bottomRightCorner {
+            
+       background: url(../images/bottom_right.gif); /* bottom right corner */
+       width: 5px;
+       height: 5px;
+       }
+
+
+.topBoxRoundTop {
+            
+       background: url(../images/top_box_round_top.gif); /* top box with color */
+       height: 5px;
+       }
+
+.topBoxSideRight {
+            
+       background: url(../images/top_box_sides_right.gif); /* right top box side with color */
+       width: 5px;
+       height: 1px;
+       }
+
+.topBoxSideLeft {
+            
+       background: url(../images/top_box_sides_left.gif); /* left top box side with color */
+       width: 5px;
+       height: 5px;
+       }
+ 
+ .topBoxRoundLeft {
+             
+        background: url(../images/top_box_round_corners_left.gif); /* left round top box side with color */
+        width: 5px;
+        height: 5px;
+       }
+ 
+ .topBoxRoundRight {
+              
+         background: url(../images/top_box_round_corners_right.gif); /* right round top box side with color */
+         width: 5px;
+         height: 5px;
+       }
+ 
+ .topBoxRoundLeftLight {
+              
+         background: url(../images/top_box_round_corners_left2.gif); /* left round top box side with color */
+         width: 5px;
+         height: 5px;
+        }
+  
+  .topBoxRoundRightLight {
+               
+          background: url(../images/top_box_round_corners_right2.gif); /* right round top box side with color */
+          width: 5px;
+          height: 5px;
+       }
+
+
+.topBoxSideRightLight {
+            
+       background: url(../images/top_box_sides_right2.gif); /* right top box side with color */
+       width: 5px;
+       height: 1px;
+       }
+
+.topBoxSideLeftLight {
+            
+       background: url(../images/top_box_sides_left2.gif); /* left top box side with color */
+       width: 5px;
+       height: 5px;
+       }
+
+.topBoxRoundTopLight {
+            
+       background: url(../images/top_box_round_top2.gif); /* top box with color */
+       height: 5px;
+       }
+
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+/********** CLASSES FOR CASCADING TOP NAVIGATION BAR ***********/
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+
+
+
+/* background color for table hosting nav bar */
+
+
+.topNavBar {
+            
+       background-color: #498a1b;
+       } 
+
+
+/**************************************************************************************************************/
+/*********** green gradient square tabs for 1 line menus *************/
+/**************************************************************************************************************/
+
+.topNavigationRitaGreen ul {
+
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	}
+
+/*Top level list items*/
+
+.topNavigationRitaGreen ul li {
+
+	position: relative;
+	display: inline;
+	float: left;
+	}
+
+
+/*Top level menu link items style*/
+
+.topNavigationRitaGreen ul li a {
+
+	display: block;
+	width: 149px;       /* change the width according to the number of menus and the width of the main table and taking into account padding */
+	padding: 5px 0px 5px 0px;
+	border-right: 1px solid #498a1b;
+	border-top: 1px solid #498a1b;
+	border-bottom: 1px solid #498a1b;
+	border-left-width: 0;
+	text-decoration: none;
+	background: #b5b5b5;
+	font: bold 12px Tahoma;
+	line-height: 10px;
+	text-align: center;
+	}
+	
+/*Sub level menu*/
+
+.topNavigationRitaGreen ul li ul {
+
+	left: 0;
+	top: 0;
+	border-top: 1px solid #74bf41;
+	position: absolute;
+	display: block;
+	visibility: hidden;
+	z-index: 100;
+	}
+
+/*Sub level menu list items*/
+
+.topNavigationRitaGreen ul li ul li {
+
+	display: inline;
+	float: none;
+	}
+
+
+/* Sub level menu links style */
+
+.topNavigationRitaGreen ul li ul li a {
+
+	width: 145px;       /* change the width according to the width of the top menu width and taking into account padding */
+	font-weight: normal;
+	text-align: left;
+	padding: 5px 0px 5px 3px;
+	background: #ebf0f6;
+	border-width: 0 1px 1px 1px;
+	border-style: solid;
+	line-height: 14px;
+	border-color: #74bf41;
+	}
+
+
+.topNavigationRitaGreen ul li a:link {
+
+	background: url(../images/top_nav_green.jpg);
+	/* background: #5a9f29; */
+	text-decoration: none;
+	color: #ffffff;
+	}
+
+.topNavigationRitaGreen ul li a:visited {
+
+	background: url(../images/top_nav_green.jpg);
+	/* background: #5a9f29; */
+	text-decoration: none;
+	color: #ffffff;
+	}
+
+.topNavigationRitaGreen ul li a:hover {
+
+	background: url(../images/top_nav_green.jpg);
+	/* background: #5a9f29; */
+	text-decoration: underline;
+	color: #ffffff;
+	}
+
+.topNavigationRitaGreen ul li ul li a:link {
+
+	background: #5a9f29;
+	text-decoration: none;
+	color: #ffffff;
+	}
+
+.topNavigationRitaGreen ul li ul li a:visited {
+
+	background: #5a9f29;
+	text-decoration: none;
+	color: #ffffff;
+	}
+
+.topNavigationRitaGreen ul li ul li a:hover {
+
+	background: #5a9f29; 
+	text-decoration: underline;
+	color: #ffffff;
+	}
+
+.topNavigationRitaGreen .arrowdiv {
+
+	position: absolute;
+	right: -4px;
+	background: transparent url(../images/topNavArrowWhite.gif);
+	background-repeat: no-repeat;
+	top: 9px;
+	}
+
+/**************************************************************************************************************/
+/*********** tabs for 2 line menus *************/
+/**************************************************************************************************************/
+
+.topNavigationRitaGreenTwo ul {
+
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	}
+
+/*Top level list items*/
+
+.topNavigationRitaGreen ul li {
+
+	position: relative;
+	display: inline;
+	float: left;
+	}
+
+
+/*Top level menu link items style*/
+
+.topNavigationRitaGreenTwo ul li a {
+
+	display: block;
+	width: 149px;       /* change the width according to the number of menus and the width of the main table and taking into account padding */
+	padding: 1px 0px 1px 0px;
+	border-right: 1px solid #498a1b;
+	border-top: 1px solid #498a1b;
+	border-bottom: 1px solid #498a1b;
+	border-left-width: 0;
+	text-decoration: none;
+	background: #b5b5b5;
+	font: bold 11px Tahoma;
+	line-height: 9px;
+	text-align: center;
+	}
+	
+/*Sub level menu*/
+
+.topNavigationRitaGreenTwo ul li ul {
+
+	left: 0;
+	top: 0;
+	border-top: 1px solid #74bf41;
+	position: absolute;
+	display: block;
+	visibility: hidden;
+	z-index: 100;
+	}
+
+/*Sub level menu list items*/
+
+.topNavigationRitaGreenTwo ul li ul li {
+
+	display: inline;
+	float: none;
+	}
+
+
+/* Sub level menu links style */
+
+.topNavigationRitaGreenTwo ul li ul li a {
+
+	width: 145px;       /* change the width according to the width of the top menu width and taking into account padding */
+	font-weight: normal;
+	text-align: left;
+	padding: 5px 0px 5px 3px;
+	background: #ebf0f6;
+	border-width: 0 1px 1px 1px;
+	border-style: solid;
+	line-height: 14px;
+	border-color: #74bf41;
+	}
+
+.topNavigationRitaGreenTwo ul li a:link {
+
+	background: url(../images/top_nav_green.jpg);
+	/* background: #5a9f29; */
+	text-decoration: none;
+	color: #ffffff;
+	}
+
+.topNavigationRitaGreenTwo ul li a:visited {
+
+	background: url(../images/top_nav_green.jpg);
+	/* background: #5a9f29; */
+	text-decoration: none;
+	color: #ffffff;
+	}
+
+.topNavigationRitaGreenTwo ul li a:hover {
+
+	background: url(../images/top_nav_green.jpg);
+	/* background: #5a9f29; */
+	text-decoration: underline;
+	color: #ffffff;
+	}
+
+.topNavigationRitaGreenTwo ul li ul li a:link {
+
+	background: #5a9f29;
+	text-decoration: none;
+	color: #ffffff;
+	}
+
+.topNavigationRitaGreenTwo ul li ul li a:hover {
+
+	background: #5a9f29; 
+	text-decoration: underline;
+	color: #ffffff;
+	}
+
+.topNavigationRitaGreenTwo .arrowdiv {
+
+	position: absolute;
+	right: 0;
+	background: transparent url(../images/topNavArrowWhite.gif);
+	background-repeat: no-repeat;
+	top: 9px;
+	}
+
+
+/**************************************************************************************************************/
+/* border color for sides and bottom of main container */
+/**************************************************************************************************************/
+
+
+.color {border:1px solid #cccccc;}
+
+
+
+
+/**************************************************************************************************************/
+/* general links */
+/**************************************************************************************************************/
+
+
+/* General Link Anchor Pseudo-classes green no underline */
+
+	/* a:active { color: #003366; text-decoration: none;}  */
+	
+	/* a:active { color: #498a1b; text-decoration: none;} */
+
+	/* a:visited { color: #666699; text-decoration: none;} */
+
+	/* a:link {color: #498a1b; text-decoration: none;}  */
+
+	/* a:hover {color: #000000; text-decoration: underline;} */
+
+
+
+/* General Link Anchor Pseudo-classes original colors */
+
+	a:active { color: #ff0000; text-decoration: none;} 
+
+	a:visited { color: #800080; text-decoration: none;}
+
+	a:link {color: #0000ff; text-decoration: none;}
+
+	a:hover {color: #cc0000; text-decoration: underline;}
+
+
+
+
+/**************************************************************************************************************/
+/* black links for footer */
+/**************************************************************************************************************/
+
+
+	     .BlackLink { 
+		
+		color: #000000;
+		
+		font-family: arial, verdana, helvetica;
+		
+		font-size: 75%;
+				
+		}
+		
+		.BlackLink a:visited {color:#000000;}
+		
+		.BlackLink a:link {color:#000000;}
+		
+		.BlackLink a:hover {color:#666666;}
+		
+		
+	      .BlackLinkBold { 
+		
+		color: #000000;
+		
+		font-family: arial, verdana, helvetica;
+		
+		font-size: 75%;
+				
+		font-weight: bold;
+				
+		}
+		
+		.BlackLinkBold a:visited {color:#000000; text-decoration: none;}
+		
+		.BlackLinkBold a:link {color:#000000; text-decoration: none; }
+		
+		.BlackLinkBold a:hover {color:#000000; text-decoration: underline; }
+		
+
+
+	     .BlackLinkSmall { 
+		
+		color: #000000;
+		
+		font-family: arial, verdana, helvetica;
+		
+		font-size: 70%;
+				
+		}
+		
+		.BlackLinkSmall a:visited {color:#000000;}
+		
+		.BlackLinkSmall a:link {color:#000000;}
+		
+		.BlackLinkSmall a:hover {color:#000000;}
+		
+		
+        .footerblack {
+
+                color: #000000;
+
+                font-family: arial, verdana, helvetica;
+
+                font-size: 70%;
+
+
+                }
+
+        .footerblack a:visited {color:#000000; text-decoration: none;}
+
+        .footerblack a:link {color:#000000; text-decoration: none; }
+
+        .footerblack a:hover {color:#000000; text-decoration: underline; }
+        
+
+        .footerblacksmall {
+
+                color: #000000;
+
+                font-family: arial, verdana, helvetica;
+
+                font-size: 65%;
+
+
+                }
+
+        .footerblacksmall a:visited {color:#000000; text-decoration: none;}
+
+        .footerblacksmall a:link {color:#000000; text-decoration: none; }
+
+        .footerblacksmall a:hover {color:#000000; text-decoration: underline; }
+
+
+
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+/*********************** END OF NEW CLASSES SECTION FOR SEPTEMBER 2008 REDESIGN SECTION ***********************/
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+
+
+
+
+table, tr, th, td { font-family: arial, helvetica, sans-serif; }
+
+h1 { font-size: 185%; margin-top: 0px;  /* firefox gives too much top margin so it has to be set to 0 to display like ie */}
+
+h2 { font-size: 150%; margin-top: 0px;  /* firefox gives too much top margin so it has to be set to 0 to display like ie */}
+
+h3 { font-size: 125%; margin-top: 0px;  /* firefox gives too much top margin so it has to be set to 0 to display like ie */}
+
+h4 { font-size: 115%; margin-top: 0px; margin-bottom: 23px  /* firefox gives too much top margin so it has to be set to 0 to display like ie */}
+
+h5 { font-size: 100%; margin-top: 0px; margin-bottom: 17px  /* firefox gives too much top margin so it has to be set to 0 to display like ie */}
+
+h6 { font-size: 90%; margin-top: 0px; margin-bottom: 11px   /* firefox gives too much top margin so it has to be set to 0 to display like ie */}
+
+caption { font-weight: bold; font-size: 100%; text-align: left; }
+
+ol { list-style-type: decimal; }  
+
+ol ol { list-style-type: decimal; } 
+
+ol ol ol { list-style-type: decimal; } 
+
+ol ol ol ol { list-style-type: decimal; } 
+
+ul { list-style-type: disc; }  
+
+ul ul { list-style-type: circle; } 
+
+ul ul ul { list-style-type: square; } 
+
+ul ul ul ul { list-style-type: disc; } 
+
+p, blockquote {	font-size: 75%; }
+
+i, em { font-style: italic; }
+
+b, strong { font-weight: bold; }
+
+sup { font-size: 85%; line-height: 1.5em; vertical-align: super; }
+
+sub { font-size: 85%; line-height: 1.5em; vertical-align: sub; }
+
+		.outline1 { list-style-type: upper-roman; font-size: 75%; }  
+
+		.outline2 { list-style-type: upper-alpha; } 
+
+		.outline3 { list-style-type: lower-roman; } 
+
+		.outline4 { list-style-type: lower-alpha; } 
+
+		.nolist  { list-style-type: none; font-size: 90%; } 
+
+		.nolists  { list-style-type: none; } 
+
+		.header1 { font-size: 185%; font-weight: bold; }
+
+		.header2 { font-size: 150%; font-weight: bold; }
+
+		.header3 { font-size: 125%; font-weight: bold; }
+
+		.header4 { font-size: 110%;	font-weight: bold; }
+
+		.header5 { font-size: 100%; font-weight: bold; }
+
+		.btsfont { font-size: 75%; }
+		
+		.ritafont { font-size: 75%; }
+		
+		.btsfont_java { font-size: 87%; }
+		
+		.ritafont_java { font-size: 87%; }
+
+		.btsfontsmall {	font-size: 70%; }
+		
+		.ritafontsmall { font-size: 70%; }
+
+		.btsfontbig { font-size: 90%; }
+		
+		.ritafontbig { font-size: 90%; }
+
+		.indent { margin-left: 6ex; }
+		
+		.indentp2 { margin-left: 10ex; }
+		
+		.indentp3 { margin-left: 14ex; }
+		
+		.indentp4 { margin-left: 18ex; }
+		
+		.indentp5 { margin-left: 22ex; }
+
+		.indenttext { text-indent: 6ex; }
+
+		.center { text-align: center; }
+
+		.transparent {
+
+		background-color: transparent;
+
+		color: #ffffff; 
+
+		font-size: 10%;
+
+		}
+
+		.transparent a:visited {color:#ffffff; text-decoration: none;}
+
+		.transparent a:link {color:#ffffff; text-decoration: none; }
+
+		.transparent a:hover {color:#ffffff; text-decoration: none; }
+
+		.note, .key, .source, .smallfooter { font-size: 70%; }
+
+		.important {font-family: arial, helvetica, sans-serif;color: #ff0000;}
+
+		.letterheadsmall { font-size: 70%;  }
+
+		.letterheadregular { font-size: 75%; }
+
+
+
+/* link or text to be hidden in non-wireless device  */
+
+		/* used to hide small top banner on regular browser */
+
+		.forwirelessonly { 
+
+		display: none; 
+
+		}
+
+/* white background for wireless home page  */
+
+		.wirelessBgcolor { 
+
+		background-color: #ffffff;
+		
+		}
+
+
+/* Data Table */
+
+		/* Column Heads */
+
+		.colheadone { 
+
+		background-color: #cccccc; 
+
+		color: #000000;
+
+		text-align: center;
+
+		font-size: 75%;
+
+		}
+
+		.colheadtwo { 
+
+		background-color: #cccccc; 
+
+		color: #000000;
+
+		text-align: center;
+
+		font-size: 75%;
+
+		}
+
+		.colheadthree { 
+
+		background-color: #cccccc; 
+
+		color: #000000;
+
+		text-align: center;
+
+		font-size: 75%;
+
+		}
+
+		/* Row Heads */
+
+		.rowheadone { 
+
+		background-color: #e6e6e6; 
+
+		color: #000000;
+
+		text-align: left;
+
+		font-family: arial, helvetica, sans-serif;
+
+		font-size: 75%;
+
+		}
+
+		.rowheadtwo { 
+
+		background-color: #e6e6e6; 
+
+		color: #000000;
+
+		text-align: center;
+
+		font-family: arial, helvetica, sans-serif;
+
+		font-size: 75%;
+
+		}
+
+		.rowheadthree { 
+
+		background-color: #e6e6e6; 
+
+		color: #000000;
+
+		text-align: left;
+
+		font-family: arial, helvetica, sans-serif;
+
+		font-size: 75%;
+
+		}
+
+			.rowheadright { /* in redesign, need to change this class .rowheadone to .rowheadleft */
+
+			background-color: #e6e6e6; 
+
+			color: #000000;
+
+			text-align: right;
+
+			font-size: 75%;
+
+			}
+
+			.rowheadcenter { /* in redesign, need to change this class .rowheadtwo to .rowheadcenter */
+
+			background-color: #e6e6e6; 
+
+			color: #000000;
+
+			text-align: center;
+
+			font-size: 75%;
+
+			}
+
+			.rowheadleft { /* in redesign, need to change this class .rowheadthree to .rowheadleft */
+
+			background-color: #e6e6e6; 
+
+			color: #000000;
+
+			text-align: left;
+
+			font-size: 75%;
+
+			}
+
+			.rowheadrightimportant { 
+
+			background-color: #e6e6e6; 
+
+			color: #ff0000;
+
+			text-align: right;
+
+			font-size: 75%;
+
+			}
+
+			.rowheadcenterimportant { 
+
+			background-color: #e6e6e6; 
+
+			color: #ff0000;
+
+			text-align: center;
+
+			font-size: 75%;
+
+			}
+
+			.rowheadleftimportant { 
+
+			background-color: #e6e6e6; 
+
+			color: #ff0000;
+
+			text-align: left;
+
+			font-size: 75%;
+
+			}
+
+		.rowheadoneimportant { 
+
+		background-color: #e6e6e6; 
+
+		color: #ff0000;
+
+		text-align: left;
+
+		font-family: arial, helvetica, sans-serif;
+
+		font-size: 75%;
+
+		}
+
+		.rowheadtwoimportant { 
+
+		background-color: #e6e6e6; 
+
+		color: #ff0000;
+
+		text-align: center;
+
+		font-family: arial, helvetica, sans-serif;
+
+		font-size: 75%;
+
+		}
+
+		.rowheadthreeimportant { 
+
+		background-color: #e6e6e6; 
+
+		color: #ff0000;
+
+		text-align: left;
+
+		font-family: arial, helvetica, sans-serif;
+
+		font-size: 75%;
+
+		}
+
+		.indent1 { 
+
+		background-color: #e6e6e6; 
+
+		color: #000000;
+
+		text-align: left;
+
+		font-size: 75%;
+
+		text-indent: 1ex;
+
+		}
+
+		.indent2 { 
+
+		background-color: #e6e6e6; 
+
+		color: #000000;
+
+		text-align: left;
+
+		font-size: 75%;
+
+		text-indent: 2ex;
+
+		}
+
+		.indent3 { 
+
+		background-color: #e6e6e6; 
+
+		color: #000000;
+
+		text-align: left;
+
+		font-size: 75%;
+
+		text-indent: 3ex;
+
+		}
+
+		.indent4 { 
+
+		background-color: #e6e6e6; 
+
+		color: #000000;
+
+		text-align: left;
+
+		font-size: 75%;
+
+		text-indent: 4ex;
+
+		}
+
+		.indent5 { 
+
+		background-color: #e6e6e6; 
+
+		color: #000000;
+
+		text-align: left;
+
+		font-size: 75%;
+
+		text-indent: 5ex;
+
+		}
+		
+		
+		/* Table 508: Row Head Layer with indentation */
+		.RHlayer1_indent { 
+			background-color: #e6e6e6; 
+			color: #000000;
+			text-align: left;
+			font-size: 75%;
+			text-indent: 0ex;
+		}
+		.RHlayer2_indent { 
+			background-color: #e6e6e6; 
+			color: #000000;
+			text-align: left;
+			font-size: 75%;
+			text-indent: 1ex;
+		}
+		.RHlayer3_indent { 
+			background-color: #e6e6e6; 
+			color: #000000;
+			text-align: left;
+			font-size: 75%;
+			text-indent: 2ex;
+		}
+		.RHlayer4_indent { 
+			background-color: #e6e6e6; 
+			color: #000000;
+			text-align: left;
+			font-size: 75%;
+			text-indent: 3ex;
+		}
+		.RHlayer5_indent { 
+			background-color: #e6e6e6; 
+			color: #000000;
+			text-align: left;
+			font-size: 75%;
+			text-indent: 4ex;
+		}
+		
+			
+
+		/* Data Cells */
+
+		.cellone { 
+
+		background-color: #e6e6e6; 
+
+		color: #000000;
+
+		font-family: arial, helvetica, sans-serif;
+
+		text-align: right;				/* text-align: "."; */
+
+		font-size: 75%;
+
+		}
+
+		.celltwo { 
+
+		background-color: #e6e6e6; 
+
+		color: #000000;
+
+		font-family: arial, helvetica, sans-serif;
+
+		text-align: left; 				/* text-align: "."; */
+
+		font-size: 75%;
+
+		}
+
+		.cellthree { 
+
+		background-color: #e6e6e6; 
+
+		color: #000000;
+
+		font-family: arial, helvetica, sans-serif;
+
+		text-align: center; 				/* text-align: "."; */
+
+		font-size: 75%;
+
+		}
+
+			.cellright { /* in redesign, need to change this class .cellone to .cellright */
+
+			background-color: #e6e6e6; 
+
+			color: #000000;
+
+			text-align: right;		
+
+			font-size: 75%;
+
+			}
+
+                        .cellrightwhite { /* same as cellright but no background-color. For dictionary */
+                        color: #000000;
+                        text-align: right;
+                        font-size: 75%;
+                        }
+
+			.cellleft { /* in redesign, need to change this class .celltwo to .cellleft */
+
+			background-color: #e6e6e6; 
+
+			color: #000000;
+
+			text-align: left; 		
+
+			font-size: 75%;
+
+			}
+
+                        .cellleftwhite { /* same as cellleft but no background-color. For dictionary */
+                        color: #000000;
+                        text-align: left;
+                        font-size: 75%;
+                        }
+
+			.cellcenter { /* in redesign, need to change this class .cellthree to .cellcenter */
+
+			background-color: #e6e6e6; 
+
+			color: #000000;
+
+			text-align: center; 				
+
+			font-size: 75%;
+
+			}
+
+			.cellrightimportant { 
+
+			background-color: #e6e6e6; 
+
+			color: #ff0000;
+
+			text-align: right;		
+
+			font-size: 75%;
+
+			}
+
+			.cellleftimportant { 
+
+			background-color: #e6e6e6; 
+
+			color: #ff0000;
+
+			text-align: left; 		
+
+			font-size: 75%;
+
+			}
+
+			.cellcenterimportant { 
+
+			background-color: #e6e6e6; 
+
+			color: #ff0000;
+
+			text-align: center; 				
+
+			font-size: 75%;
+
+			}
+
+		.celloneimportant { 
+
+		background-color: #e6e6e6; 
+
+		color: #ff0000;
+
+		font-family: arial, helvetica, sans-serif;
+
+		text-align: right;				
+
+		font-size: 75%;
+
+		}
+
+		.celltwoimportant { 
+
+		background-color: #e6e6e6; 
+
+		color: #ff0000;
+
+		font-family: arial, helvetica, sans-serif;
+
+		text-align: left; 				
+
+		font-size: 75%;
+
+		}
+
+		.cellthreeimportant { 
+
+		background-color: #e6e6e6; 
+
+		color: #ff0000;
+
+		font-family: arial, helvetica, sans-serif;
+
+		text-align: center; 				
+
+		font-size: 75%;
+
+		}
+
+		.cellrightshade {
+
+		/* background-color: #cccccc; */
+
+		background-color: #b7b7b7; 
+
+		color: #000000;
+
+		text-align: right;		
+
+		font-size: 75%;
+
+		}
+
+		.cellleftshade { 
+
+		/* background-color: #cccccc; */
+
+		background-color: #b7b7b7; 
+
+		color: #000000;
+
+		text-align: left; 		
+
+		font-size: 75%;
+
+		}
+
+		.cellcentershade { 
+
+		/* background-color: #cccccc; */
+
+		background-color: #b7b7b7; 
+
+		color: #000000;
+
+		text-align: center; 				
+
+		font-size: 75%;
+
+		}
+		
+		.spacerten { 
+
+		line-height:10px;
+
+		}
+		.spacerfive { 
+
+		line-height:5px;
+
+		}
+
+/* Table of Content (Matrix) table */
+
+		.tocheader { 
+
+		background-color: #cccccc; 
+
+		color: #000000;
+
+		text-align: center;
+
+		font-size: 75%;
+
+		font-weight: bold;
+
+		}
+
+		.tocsection { 
+
+		background-color: #e6e6e6; 
+
+		color: #000000;
+
+		text-align: left;
+
+		font-size: 75%;
+
+		font-weight: bold;
+
+		}
+
+		.tocentry { 
+
+		background-color: #e6e6e6; 
+
+		color: #000000;
+
+		text-align: left;
+
+		font-size: 75%;
+
+		}
+
+		.toclink { 
+
+		background-color: #e6e6e6; 
+
+		color: #000000;
+
+		text-align: center;
+
+		font-size: 75%;
+
+		width: 10%;
+
+		}
+		
+
+/* new classes for toc indentation 9/19/2006 */
+		
+		
+		.tocindent0 { /* class for main entries in toc */
+
+		background-color: #e6e6e6; 
+
+		color: #000000;
+
+		text-align: left;
+
+		font-size: 75%;
+
+		font-weight: bold;
+
+		}		
+		
+		
+		.tocindent1 { /* class for second level like section under main entry with bold */
+
+		background-color: #e6e6e6; 
+
+		color: #000000;
+
+		text-align: left;
+
+		font-size: 75%;
+
+		font-weight: bold;
+		
+		padding-left: 15px;
+
+		}
+		
+		
+		.tocindent1nobold { /* class for second level under main entry but no bold */
+
+		background-color: #e6e6e6; 
+
+		color: #000000;
+
+		text-align: left;
+
+		font-size: 75%;
+
+		padding-left: 15px;
+
+		}
+
+
+		
+
+		.tocindent2 { /* class for third level under section entry no bold */
+
+		background-color: #e6e6e6; 
+
+		color: #000000;
+
+		text-align: left;
+
+		font-size: 75%;
+		
+		padding-left: 30px;
+
+		}
+		
+		
+
+/* Text Box */
+
+		.textboxhead { 
+
+		background-color: #cccccc;
+
+		color: #000000;
+
+		font-size: 90%;
+
+		font-weight: bold;
+
+		padding: 4px;
+
+		}
+
+		.textboxborder { border: thin solid #cccccc;}
+
+		.textbox { background-color: #e6e6e6; color: #000000;}
+		
+		.textboxYellow { background-color: #ffff99; color: #000000;}
+
+/* Photo/Image Box */
+
+		.ImageBoxRight {
+
+		position: auto;
+
+		padding-left: 5px;
+
+		margin-right: 0px;
+
+		}
+
+		.ImageBoxLeft {
+
+		position: auto;
+
+		padding-right: 5px;
+
+		margin-left: 0px;
+
+		}
+
+		.ImageCaption {
+
+		font-family: arial, helvetica, sans-serif;
+
+		font-size: 70%;
+
+		padding-top: 5px;
+
+		padding-bottom: 5px;
+
+		}
+
+
+/* for the +- sign on expandable/collapsible tables */
+
+	a.collapsible:visited {background-color:transparent; color: #000000; text-decoration: none; }
+
+	a.collapsible:link {background-color:transparent; color: #000000; text-decoration: none; }
+
+	a.collapsible:hover {background-color:transparent; color: #cc0000; text-decoration: none; }
+
+/* change or delete this class when redesign, css for no decoration links in black text color */
+
+	a.nodec:visited {background-color:transparent;color:#000000; text-decoration: none; }
+
+	a.nodec:link {background-color:transparent;color:#000000; text-decoration: none; }
+
+	a.nodec:hover {background-color:transparent;color:#000000; text-decoration: underline; }
+
+/* change to .nodec and delete after redesign, css for no decoration links in white text color */
+
+	a.nodec2:visited {background-color:transparent;color:#000000; text-decoration: none; }
+
+	a.nodec2:link {background-color:transparent;color:#000000; text-decoration: none; }
+
+	a.nodec2:hover {background-color:transparent;color:#000000; text-decoration: underline; }
+
+/* css for "Skip to Content" */
+
+	a.skip:active {background-color:transparent;color: #c9c9c9; font-size: 1%;text-decoration: none;line-height:1px}   /* selected link */
+
+	a.skip:visited {background-color:transparent;color: #c9c9c9; font-size: 1%;text-decoration: none;line-height:1px}  /* visited link */
+
+	a.skip:link {background-color:transparent;color: #c9c9c9; font-size: 1%;text-decoration: none;line-height:1px}     /* unvisited link */
+
+	a.skip:hover {background-color:transparent;color: #c9c9c9; font-size: 1%;text-decoration: none;line-height:1px}   /* mouse over link */
+
+	.skips {background-color:transparent;color: #c9c9c9; font-size: 1%;line-height:1px}
+
+/* Submit Buttons display like a link */
+
+		.linkbutton { 
+
+		border: 0px solid #ffffff;
+
+		padding: 0px;
+
+		background-color: #ffffff;
+
+		color: #0000ff;
+
+		font-size: 100%;
+
+		font-family: arial, helvetica, sans-serif; 
+
+		text-decoration: underline; 
+
+		}
+
+/* Submit button that turns red when mouse-over */
+
+		.buttons { 
+
+		font-size: 70%;
+
+		font-family: Verdana, Arial, Helvetica; 
+		
+		/* max-width: 35px; */
+		
+		}
+
+		.buttonsOn {
+
+		font-size: 70%;
+
+		font-family: Verdana, Arial, Helvetica; 
+		
+		/* max-width: 35px; */
+
+		}	
+		/*
+		.buttonsOn {
+
+		background-color:#cc0000;
+
+		color:#ffffff;
+
+		font-size: 80%;
+
+		font-family: Verdana, Arial, Helvetica; 
+
+		}
+		*/
+
+/* PDC shopping cart button that turns red when mouse-over  */
+
+		.pdcrightaligntextform {
+
+		background-color:#ffffff;
+
+		color:#000000;
+
+		font-size: 100%;
+
+		text-align: right;		
+
+		font-family: Verdana, Arial, Helvetica; 
+
+		}		
+
+		.pdcbuttons { 
+
+		font-size: 70%;
+
+		font-family: Verdana, Arial, Helvetica; 
+
+		}
+
+		.pdcbuttonsOn {
+
+		font-size: 70%;
+
+		font-family: Verdana, Arial, Helvetica; 
+
+		}
+		/*.pdcbuttonsOn {
+
+		background-color:#cc0000;
+
+		color:#ffffff;
+
+		font-size: 70%;
+
+		font-family: Verdana, Arial, Helvetica; 
+
+		}*/
+
+/* PDC invoice */	
+
+		.pdcinvoicefont1 { font-family: arial;font-size: 8pt;}
+
+		.pdcinvoicefont2 {font-family: arial;font-size: 10pt;}
+
+		.pdcinvoicefont3 {font-family: arial;font-size: 12pt;}
+
+		.pdcinvoiceline { 
+
+		border-bottom: 1px #000000 solid;
+
+		font-size: 10pt;
+
+		}
+		
+/* classes for header and footer for java applications */
+
+		.inputwidth {
+		max-width: 170px;
+		max-height: 19px;
+		font-size: 87%;
+		width: 171px;
+		height: 19px;
+		}
+/* classes for login, register, shopping cart for java applications */
+
+a.pdclogin:active {background-color:transparent;color:#cc0000;text-decoration:underline;}   /* selected link */
+
+a.pdclogin:visited {background-color:transparent;color:#cc0000;text-decoration:underline;}  /* visited link */
+
+a.pdclogin:link {background-color:transparent;color:#cc0000;text-decoration:underline;}     /* unvisited link */
+
+a.pdclogin:hover {background-color:transparent;color:#cc0000;text-decoration:underline;}   /* mouse over link */
+
+
+/* classes for logout for java applications */
+		
+a.pdclogout:active {background-color:transparent;color:#ff0000;text-decoration:underline;}   /* selected link*/
+
+a.pdclogout:visited {background-color:transparent;color:#ff0000;text-decoration:underline;}  /* visited link*/
+
+a.pdclogout:link {background-color:transparent;color:#ff0000;text-decoration:underline;}     /* unvisited link*/
+
+a.pdclogout:hover {background-color:transparent;color:#ff0000;text-decoration:underline;}   /* mouse over link*/
+		
+
+/* TSA section */
+
+		.tsanavbar { 
+
+		background-color: #000066; 
+
+		color: #ffffff;
+
+		font-size: 75%;
+
+		}
+
+		.tsaheader {font-size: 90%; background-color: #a2b5cd;}
+
+		.tsainputbox {font-size: 75%; background-color: #e5e5e5;}
+
+		.error {color: #ff0000;font-weight: bold; }
+
+	 
+
+	a.tsaskip:active {background-color:transparent;color: #000066; font-size: 60%;text-decoration: none;}  
+
+	a.tsaskip:visited {background-color:transparent;color: #000066; font-size: 60%;text-decoration: none;} 
+
+	a.tsaskip:link {background-color:transparent;color: #000066; font-size: 60%;text-decoration: none;}    
+
+	a.tsaskip:hover {background-color:transparent;color: #000066; font-size: 60%;text-decoration: none;}   
+
+
+
+/* ---- The following CSS is for New BTS home page ---- */
+
+		.globalnavbar { 
+
+		background-color: #0066cc;
+
+		color: #ffffff;
+
+		font-size: 75%; 
+
+		font-family: verdana, arial, helvetica;
+
+		}
+
+		.globalnavbar a:visited {color:#ffffff; text-decoration: none;}
+
+		.globalnavbar a:link {color:#ffffff; text-decoration: none; }
+
+		.globalnavbar a:hover {color:#ffff00; text-decoration: none; }
+
+	
+		.GlobalTopNavBar2 { 
+
+		background-color: #ffffff;
+
+		color: #000000;
+
+		font-size: 75%; 
+
+		font-family: verdana, arial, helvetica;
+		}
+
+		.GlobalTopNavBar { 
+
+		background-color: #2175d9;
+
+		color: #ffffff;
+
+		font-size: 75%; 
+
+		font-family: verdana, arial, helvetica;
+
+		}
+		
+		.pdcLoginNavBar { 
+		
+		background-color: #ffffff;
+		
+		color: #000000;
+		
+		font-size: 70%; 
+		
+		font-family: verdana, arial, helvetica;
+		
+		}
+		
+
+		.GlobalTopNavBar a:visited {color:#ffffff; text-decoration: none;}
+
+		.GlobalTopNavBar a:link {color:#ffffff; text-decoration: none; }
+
+		.GlobalTopNavBar a:hover {color:#ffff00; text-decoration: none; }
+
+		a.login:active {background-color:transparent;color:#ffff00;text-decoration:none;}   /* selected link */
+
+		a.login:visited {background-color:transparent;color:#ffff00;text-decoration:none;}  /* visited link */
+
+		a.login:link {background-color:transparent;color:#ffff00;text-decoration:none;}     /* unvisited link */
+
+		a.login:hover {background-color:transparent;color:#ffff00;text-decoration:none;}   /* mouse over link */
+
+	
+
+		.globalheadermiddle { 
+
+		background-color: #2175d9;
+
+		color: #ffffff;
+
+		font-size: 75%; 
+
+		font-family: verdana, arial, helvetica;
+
+		}
+
+		.globalheadermiddle a:visited {color:#ffffff; text-decoration: none;}
+
+		.globalheadermiddle a:link {color:#ffffff; text-decoration: none; }
+
+		.globalheadermiddle a:hover {color:#ffff00; text-decoration: none; }
+
+		
+
+		.GlobalLeftNavBar { 
+
+		background-color: #cfe4fa;
+
+		/* font-size: 75%; NO NEED REDUCES FONT SIZE ON WIRELESS */
+
+		}
+
+	    .LocalLeftNavBar1 { 
+
+		color: #000000;
+
+		font-family: verdana, arial, helvetica;
+
+		font-size: 75%;
+
+		font-weight: bold;
+
+		border-bottom: 1px #00308f solid;
+
+		}
+
+		.LocalLeftNavBar1 a:visited {color:#000000; text-decoration: none;}
+
+		.LocalLeftNavBar1 a:link {color:#000000; text-decoration: none; }
+
+		.LocalLeftNavBar1 a:hover {color:#cc0000; text-decoration: none; }
+
+		
+
+		.LocalLeftNavBar2 { 
+
+		color: #000000;
+
+		font-family: verdana, arial, helvetica;
+
+		font-size: 75%;
+
+		border-bottom: 1px #00308f solid;
+
+		/*padding-left: 8px;*/
+
+		}
+
+		.LocalLeftNavBar2 a:visited {color:#000000; text-decoration: none;}
+
+		.LocalLeftNavBar2 a:link {color:#000000; text-decoration: none; }
+
+		.LocalLeftNavBar2 a:hover {color:#cc0000; text-decoration: none; }
+
+		
+
+		.LocalLeftNavBar3 { 
+
+		color: #000000;
+
+		font-family: verdana, arial, helvetica;
+
+		font-size: 75%;
+
+		font-weight: bold;
+
+		border-bottom: 3px #00308f solid;
+
+		}
+
+		.LocalLeftNavBar3 a:visited {color:#000000; text-decoration: none;}
+
+		.LocalLeftNavBar3 a:link {color:#000000; text-decoration: none; }
+
+		.LocalLeftNavBar3 a:hover {color:#cc0000; text-decoration: none; }
+
+
+
+		.breadcrumbs {font-size: 65%;font-family: verdana, arial, helvetica; color: #000000;}
+
+		.breadcrumb a:active {background-color:transparent; color: #ff0000; text-decoration: none;}  
+
+		.breadcrumb a:visited {background-color:transparent; color: #800080; text-decoration: none;}  
+
+		.breadcrumb a:link {background-color:transparent;color: #0000ff; text-decoration: underline;}     
+
+		.breadcrumb a:hover {background-color:transparent;color: #ff0000; text-decoration: underline;} 
+
+				
+
+		.RotateImg {padding-right: 8px;}
+
+		.nopadlist { margin-left: 20px; }
+
+		.featureboxcontent { font-size: 75%;background-color: #ffffff;}			
+
+		.headlineboxcontent { font-size: 110%;}
+		
+		.searchboxcontentTopNavBar { 
+
+		font-size: 75%; 
+
+		font-family: verdana, arial, helvetica;
+		
+		font-weight: bold;
+
+		background-color: #2175d9;
+
+		color: #ffffff;
+		
+		}					
+
+		.searchboxcontent { 
+
+		border-top: 1px #ffffff solid;
+
+		border-bottom: 1px #ffffff solid;
+
+		font-size: 75%;
+
+		background-color: #2175d9;
+
+		color: #ffffff;
+
+		}
+
+		.searchboxcontent a:visited {background-color:transparent;color:#ffffff;font-size: 90%; text-decoration: underline; }
+
+		.searchboxcontent a:link {background-color:transparent;color:#ffffff;font-size: 90%; text-decoration: underline; }
+
+		.searchboxcontent a:hover {background-color:transparent;color:#ffff00;font-size: 90%; text-decoration: underline; }
+
+	
+
+		.ontimebox { border: none;}
+
+		.ontimeboxtitle { background-color: #00308f; /*#959595*/
+
+		color: #ffffff; 
+
+		font-family: verdana, arial, helvetica; 
+
+		font-size: 75%; 
+
+		font-weight: bold; 
+
+		}
+
+		.ontimeboxcontent { 
+
+		font-size: 70%; 
+
+		background-color: #ececec;
+
+		background-image: url(/images/on_time_bk.jpg);
+
+		background-repeat: no-repeat;
+
+		}
+
+		
+
+		/* blue box w/ border */
+
+		.boxQuickVote { border: none;}
+
+		.boxQuickVotetitle { 
+
+		background-color: #e6e6e6;
+
+		color: #000000;
+
+		font-family: verdana, arial, helvetica;
+
+		font-size: 75%;
+
+		font-weight: bold;
+
+		border-top: 1px #00308f solid;
+
+		border-bottom: 1px #00308f solid;
+
+		}
+
+		.boxQuickVotecontent { 
+
+		background-color: #e6e6e6;
+
+		font-size: 75%;
+
+		border-bottom: 1px #00308f solid;
+
+		}
+
+/* dark blue text bold*/
+
+		.blue { 
+
+		color: #00308f;
+
+		font-family: verdana, arial, helvetica;
+
+		font-weight: bold;
+
+  	      }
+
+/* dark blue text no bold*/
+
+		.bluenobold { 
+
+		color: #00308f;
+
+		font-family: verdana, arial, helvetica;
+
+  	      }
+
+		
+		.box1 { border: 1px #00308f solid;}
+
+		.box1title { 
+
+		background-color: #00308f;
+
+		color: #ffffff;
+
+		font-family: verdana, arial, helvetica;
+
+		font-size: 75%;
+
+		font-weight: bold;
+
+  	      }
+
+		.box1content { font-size: 75%;}
+
+		/* blue box w/out border */
+
+		.box2 { border: none;}
+
+		.box2title { 
+
+		background-color: #00308f;
+
+		color: #ffffff;
+
+		font-family: verdana, arial, helvetica;
+
+		font-size: 75%;
+
+		font-weight: bold;
+
+ 		}
+
+		.box2content { font-size: 75%;}
+
+		/* light blue bk w/ black text w/ border */
+
+		.box3 { border: 1px #000000 solid;}
+
+		.box3title { 
+
+		background-color: #9FD0FA;
+
+		color: #000000;
+
+		font-family: verdana, arial, helvetica;
+
+		font-size: 75%;
+
+		font-weight: bold;
+
+		border-top: 3px #cc0000 solid;
+
+		border-bottom: 1px #cc0000 solid;
+
+		}
+
+		.box3content { background-color: #9FD0FA;font-size: 75%;}
+
+		/* red box w/out border */
+
+		.box4 { border: none;}
+
+		.box4title { 
+
+		background-color: #cc0000; 
+
+		color: #ffffff; 
+
+		font-family: verdana, arial, helvetica; 
+
+		font-size: 75%; 
+
+		font-weight: bold;
+
+		}
+
+		.box4content { font-size: 75%;}
+
+		/* gray bk box w/ top/bottom borders */
+
+		.box5 { border: none;}
+
+		.box5title { 
+
+		background-color: #e6e6e6;
+
+		color: #000000;
+
+		font-family: verdana, arial, helvetica;
+
+		font-size: 75%;
+
+		font-weight: bold;
+
+		border-top: 3px #00308f solid;
+
+		border-bottom: 1px #00308f solid;
+
+		}
+
+		.box5content { 
+
+		background-color: #e6e6e6;
+
+		font-size: 75%;
+
+		border-bottom: 1px #00308f solid;
+
+		}
+
+		/* red box w/ border */
+
+		.box6 { border: 1px #cc0000 solid;}
+
+		.box6title { 
+
+		background-color: #cc0000; 
+
+		color: #ffffff; 
+
+		font-family: verdana, arial, helvetica; 
+
+		font-size: 75%; 
+
+		font-weight: bold;
+
+		}
+
+		.box6content { font-size: 75%;}
+		
+		.box7 { border: 1px solid;
+		border-color: #cccccc 
+		#e6e6e6 #e6e6e6 
+		rgb(204,204,204)}
+		
+		
+		.box7title { 
+		
+		background-color: #cccccc;
+		
+		color: #000000;
+		
+		font-family: verdana, arial, helvetica;
+		
+		font-size: 75%;
+		
+		font-weight: bold;
+		
+        	}
+		
+		.box7content { font-size: 75%;}
+				
+	/* blue box w/out border with light blue background for cells*/
+		
+		.box8 { border: none;}
+		
+		.box8title { 
+		
+		background-color: #00308f;
+		
+		color: #ffffff;
+		
+		font-family: verdana, arial, helvetica;
+		
+		font-size: 75%;
+
+		font-weight: bold;
+		
+		}
+		
+		.box8content { font-size: 75%; background-color: #CFE4FA;}
+				
+				
+	/* gold box w/ border */
+		
+		.box9 { border: 1px #FFCC33 solid;}
+	
+		.box9title { 
+		
+		background-color: #FFCC33; 
+		
+		color: #000000; 
+		
+		font-family: verdana, arial, helvetica; 
+		
+		font-size: 75%; 
+		
+		font-weight: bold;
+		
+		}
+		
+		.box9content { font-size: 75%; background-color: #FFFFCC}
+				
+				
+	/* gray box w/ border */
+		
+		.box10 { border: 1px #cccccc solid;}
+		
+		.box10title { 
+		
+		background-color: #cccccc; 
+		
+		color: #000000; 
+		
+		font-family: verdana, arial, helvetica; 
+		
+		font-size: 75%; 
+		
+		font-weight: bold;
+		
+		}
+				
+		.box10content { font-size: 75%;}
+				
+		/* box for hydrogen with its color */
+				
+		.box11 { border: 1px #64a9ae solid;}
+				
+		.box11title { 
+				
+		background-color: #64a9ae; 
+				
+		color: #ffffff; 
+				
+		font-family: verdana, arial, helvetica; 
+				
+		font-size: 75%; 
+				
+		font-weight: bold;
+				
+		}
+				
+		.box11content { font-size: 75%; background-color: #e7efef;}
+				
+				
+		.box12 { border: 1px #e6e6e6 solid;}
+				
+		.box12title { 
+				
+		background-color: #e6e6e6;
+				
+		color: #000000;
+				
+		font-family: verdana, arial, helvetica;
+				
+		font-size: 75%;
+				
+		font-weight: bold;
+				
+		}
+				
+		.box12content { 
+						
+		font-size: 75%;
+				
+		}
+				
+		.box13 { background-color: #e6e6e6; }
+		
+		
+/* For "Print this page only*/
+
+		.printthispage { 
+
+		background-color: #00308f;
+
+		color: #ffffff;
+
+		font-family: verdana, arial, helvetica;
+
+		font-size: 75%;
+
+		font-weight: bold;
+
+        	}
+		
+		.printthispage a:visited {background-color:transparent;color:#ffffff;font-size: 75%; text-decoration: underline; }
+
+		.printthispage a:link {background-color:transparent;color:#ffffff;font-size: 75%; text-decoration: underline; }
+
+		.printthispage a:hover {background-color:transparent;color:#ffff00;font-size: 75%; text-decoration: underline; }
+
+	
+/* For dictionary (a Java/XML application) */
+        .DicEntry           { font-weight: bold;  }
+        .DicMatch           { font-weight: bold;  }
+        .DicMatchBold       { font-weight: bold;  }
+        .DicMatchBoldItalic { font-weight: bold;  font-style: italic; }
+        .DicMatchBgYellow   { background-color: #FFFF66;  }
+        .DicRef             {    ;    }
+
+/***************************************************************************************************
+
+******* Do not use this section, but keep for old documents.  May delete this section in 2008 *******
+
+****************************************************************************************************/
+
+		.decellone { /* in redesign, need to change this class .decellone to .cellright */
+
+		background-color: #e6e6e6; 
+
+		color: #000000;
+
+		font-family: courier new, courier, monospace;
+
+		text-align: right;
+
+		font-size: 75%;
+
+		}
+
+		.decelltwo { /* in redesign, need to change this class .decelltwo to .cellleft */
+
+		background-color: #e6e6e6; 
+
+		color: #000000;
+
+		font-family: courier new, courier, monospace;
+
+		text-align: left; 	
+
+		font-size: 75%;
+
+		}
+
+		.decellthree { /* in redesign, need to change this class .decellthree to .cellright */
+
+		background-color: #e6e6e6; 
+
+		color: #000000;
+
+		font-family: courier new, courier, monospace;
+
+		text-align: center; 
+
+		font-size: 75%;
+
+		}
+
+/* ----------------- Old TOC classes, need to delete after redesign ---------- */
+
+	th.matrixcolhead { /* in redesign, need to change this class .matrixcolhead to .tocheader */
+
+	background-color: #cccccc; 
+
+	text-align: center;
+
+	color: #000000;
+
+	font-family: arial, helvetica, sans-serif;
+
+	font-size: 75%;
+
+	}
+
+		.matrixcellone { /* in redesign, need to change this class .matrixcellone to .toclink */
+
+		background-color: #e6e6e6; 
+
+		color: #000000;
+
+		font-family: arial, helvetica, sans-serif;
+
+		text-align: center;
+
+		font-size: 75%;
+
+		width: 10%;
+
+		}
+
+	/* find out logic to remove these following classs */
+
+		.italicstyle { font-style: italic; } 
+
+		.boldstyle { font-weight: bold; } 
+
+		.bolditalicstyle { font-style: italic; font-weight: bold; }
+
+		.superitalic { font-style: italic; vertical-align: super; }
+
+		.subitalic { font-style: italic; vertical-align: sub; }		
+
+/* css for positive, negative, and neutral colors in DARK background figures and numbers */
+
+		.negative { color: #cc0000; }
+
+		.positive { color: #009900; }
+
+		.neutral  { color: #000000; }
+
+	/* css for tris-online text color */
+
+		.tris {color:#660066; text-decoration: underline;font-family:none;font-size:18pt;font-weight:bolder; }
+
+		.online {color:#99cc00; text-decoration: underline;font-family:none;font-size:18pt;font-weight:bolder;font-style:italic; }
+
+	/********  delete after redesign, css for Buttons on the right side on current bts index.html page ********************/
+
+		.button { 
+
+		border: 0px solid #000066;
+
+		padding: 0px;
+
+		background-color: #000066;
+
+		color: #000000;
+
+		font-size: 80%;
+
+		font-family: arial, helvetica, sans-serif; 
+
+		font-weight: bold;
+
+		text-align: center;
+
+		}
+
+	a.buttonlink:active {background-color:transparent;color: #ffffff; text-decoration: none;}  
+
+	a.buttonlink:visited {background-color:transparent;color: #ffffff; text-decoration: none;}  
+
+	a.buttonlink:link {background-color:transparent;color: #ffffff; text-decoration: none;}  
+
+	a.buttonlink:hover {background-color:transparent;color: #ffff00; text-decoration: none;} 
+
+	.inputbox {
+
+		font-size: 85%;
+
+		height: 20px;
+
+		}
+
+		/* mfd  */.verticalbar { 
+
+		border-left: 1px solid #636262;
+
+		}
+
+
+/**********************************************************************/
+/**********************************************************************/
+/*************** NEW CLASSES FOR THE RITA 2007 REDESIGN ***************/
+/**********************************************************************/
+/**********************************************************************/
+
+
+
+/* main table hosting everything */
+
+
+		.mainTable { 
+		
+		background-color: #ffffff;
+		
+		width: 960px;
+		
+		}
+
+
+       	
+/* classes for left local navigation */
+
+        
+	  /* first level of navigation in bold text */       
+        
+        	.leftNavLocalOne {
+        	
+        	padding-left: 12px;
+        	
+        	padding-top: 5px;
+        	
+        	padding-bottom: 5px;
+        	
+        	padding-right: 5px;
+        	
+        	color: #00349a;
+		
+		font-size: 75%;
+		
+		font-family: arial, helvetica, sans-serif; 
+		
+		font-weight: bold;
+		
+		text-align: left;
+		
+		border-bottom: 1px #efefef solid;
+		
+		background-color: #ffffff;
+		
+		}
+		
+		
+		.leftNavLocalOne a:visited {color:#00349a; text-decoration: none;}
+		
+		.leftNavLocalOne a:link {color:#00349a; text-decoration: none;}
+		
+        	.leftNavLocalOne a:hover {color:#cc0000; text-decoration: none;}
+        	
+        	
+	  /* second level of navigation in regular text no bold */
+		
+		.leftNavLocalTwo {
+        	
+        	padding-left: 12px;
+        	
+        	padding-top: 5px;
+        	
+        	padding-bottom: 5px;
+        	
+        	padding-right: 5px;
+        	
+        	color: #00349a;
+		
+		font-size: 75%;
+		
+		font-family: arial, helvetica, sans-serif; 
+		
+		text-align: left;
+		
+		border-bottom: 1px #efefef solid;
+		
+		background-color: #ffffff;
+		
+		}
+		
+		
+		.leftNavLocalTwo a:visited {color:#00349a; text-decoration: none;}
+		
+		.leftNavLocalTwo a:link {color:#00349a; text-decoration: none;}
+		
+        	.leftNavLocalTwo a:hover {color:#cc0000; text-decoration: none;}
+        	
+        	
+	  /* third level of navigation in italic regular text */
+		
+		.leftNavLocalThree {
+        	
+        	padding-left: 12px;
+        	
+        	padding-top: 5px;
+        	
+        	padding-bottom: 5px;
+        	
+        	padding-right: 5px;
+        	
+        	color: #00349a;
+		
+		font-size: 75%;
+		
+		font-family: arial, helvetica, sans-serif; 
+		
+		text-align: left;
+		
+		border-bottom: 1px #efefef solid;
+		
+		background-color: #ffffff;
+		
+		font-style: italic
+		
+		}
+		
+		
+		.leftNavLocalThree a:visited {color:#00349a; text-decoration: none;}
+		
+		.leftNavLocalThree a:link {color:#00349a; text-decoration: none;}
+		
+        	.leftNavLocalThree a:hover {color:#cc0000; text-decoration: none;}
+        	
+        	
+        	
+	  /* fourth level of navigation in italic indented regular text */
+		
+		.leftNavLocalFour {
+        	
+        	padding-left: 20px;
+        	
+        	padding-top: 5px;
+        	
+        	padding-bottom: 5px;
+        	
+        	padding-right: 5px;
+        	
+        	color: #00349a;
+		
+		font-size: 75%;
+		
+		font-family: arial, helvetica, sans-serif; 
+		
+		text-align: left;
+		
+		border-bottom: 1px #efefef solid;
+		
+		background-color: #ffffff;
+		
+		font-style: italic
+		
+		}
+		
+		
+		.leftNavLocalFour a:visited {color:#00349a; text-decoration: none;}
+		
+		.leftNavLocalFour a:link {color:#00349a; text-decoration: none;}
+		
+        	.leftNavLocalFour a:hover {color:#cc0000; text-decoration: none;}        	
+
+        	
+        	
+	
+        /* td hosting table with left nav bar main buttons and local links */
+        	
+        	.tdLeftNavHost {
+        	
+        	width: 171px; /* column width must be maintained if a local search box is placed in local nav bar */
+        	
+        	background-color: #efefef;
+        	
+        	vertical-align: top;
+        	
+        	}
+        	
+        	
+
+/* classes for footer */
+
+
+	/* set the text white for footer with 2 text sizes */
+		
+		.footer1 { 
+		
+		color: #ffffff;
+
+		font-size: 75%;
+
+		font-family: arial, helvetica, sans-serif; 
+
+		}
+		
+		
+		.footer1 a:visited {color:#ffffff; text-decoration: underline;}
+				
+		.footer1 a:link {color:#ffffff; text-decoration: underline;}
+				
+        	.footer1 a:hover {color:#ffff33; text-decoration: underline;}
+        	
+        	
+        	
+        	
+		.footer2 { 
+		
+		color: #ffffff;
+
+		font-size: 65%;
+
+		font-family: arial, helvetica, sans-serif; 
+
+		}
+		
+		
+		.footer2 a:visited {color:#ffffff; text-decoration: underline;}
+				
+		.footer2 a:link {color:#ffffff; text-decoration: underline;}
+				
+        	.footer2 a:hover {color:#ffff33; text-decoration: underline;}
+        	
+        	
+        	
+        	
+        	
+        /* set hosting td color background and padding */
+        	
+        	.tdFooter {
+        	
+        	background-color: #003399;
+        	
+        	padding-top: 5px;
+        	
+		padding-right: 5px;
+		
+		padding-bottom: 5px;
+		
+		padding-left: 5px;
+        	
+        	}
+
+
+		/* class for background image for top footer image */
+		
+		.topFooterBackground {
+		
+		background-image: url(../images/bottom_top_footer.jpg);
+		        	
+        	}
+        	
+        	
+/* class for background image used behind banner in case the table is pushed farther than normal banner width */
+
+		
+		.bannerExtension {
+		
+		background-image: url(../images/end_banner.jpg);
+		        	
+        	}
+
+/* classes for top nav bar with search */
+
+
+	/* td hosting search and rita navigation buttons */		
+		
+		.ritaTopNavBar {
+		
+		height: 38px;
+		
+		background-image: url(../images/top_nav_bckgrnd.jpg);
+		        	
+		padding-top: 0px;
+		        	
+		padding-right: 5px;
+				
+		padding-bottom: 0px;
+				
+		padding-left: 5px;
+		        	
+        	}
+        	
+        	
+        /* text in top nav bar */
+        	
+        	.topNavText {
+        	
+        	color: #ffffff;
+				
+		font-size: 75%;
+				
+		font-family: arial, helvetica, sans-serif;
+				
+		font-weight: bold;
+		
+		}
+		
+        	
+        	.topNavText a:visited {color:#ffffff; text-decoration: none;}
+						
+		.topNavText a:link {color:#ffffff; text-decoration: none;}
+						
+        	.topNavText a:hover {color:#ffff33; text-decoration: none;}
+        	
+        	
+        	
+        /* class for search field */
+        	
+        	     	
+        	.searchField {
+        	
+        	font-family: Arial;
+        	
+		font-size: 70%;
+		
+		font-weight: normal;
+		
+		color: #000000;
+		
+		background-color: #ffffff;
+		
+		border-style:solid;
+				
+		border-width:1px;
+		                
+		border-color: #999999;
+
+		
+        	}
+        	
+        	
+		.searchFieldPdc {
+        	
+        	font-family: Arial;
+        	
+		font-size: 70%;
+		
+		font-weight: normal;
+		
+		color: #000000;
+		
+		background-color: #ffffff;
+		
+        	}
+        	
+        	
+        /* class for search or go button */
+        	
+        	.goButton { 
+		
+		font-size: 65%;
+		
+		font-family: Verdana, Arial, Helvetica;
+		
+		color: #0033a3;
+		
+		font-weight: bold;
+				
+		width: 60px;
+				
+		}
+		
+		
+        	.searchBookstore { 
+		
+		font-size: 65%;
+		
+		font-family: Verdana, Arial, Helvetica;
+		
+		color: #0033a3;
+		
+		font-weight: bold;
+				
+		width: 125px;
+				
+		}
+		
+		
+
+/* class for td hosting main content with padding at bottom for regular pages */
+
+		.tdMainContent {		
+
+		padding-bottom: 15px;
+				
+		}
+		
+		
+/* classes for content table for homepages */
+
+
+		.tableHostContent {		
+
+		padding-top: 5px;
+		        	
+		padding-right: 5px;
+				
+		padding-bottom: 5px;
+				
+		padding-left: 5px;
+		
+		border: 1px solid #000000;
+				
+		}
+		
+		
+		
+		.contentTitleBlue { 
+		
+		font-size: 85%;
+		
+		font-family: arial, helvetica, sans-serif;
+		
+		color: #0033a3;
+		
+		font-weight: bold;				
+
+		padding-top: 5px;
+		        	
+		padding-right: 5px;
+				
+		padding-bottom: 5px;
+				
+		padding-left: 5px;
+		
+		/* border-top: 1px dotted #c9c9c9;  dots look like dashes in internet explorer */
+		
+		border-top: 1px solid #c9c9c9;
+		
+		border-bottom: 1px solid #c9c9c9;
+				
+		}		
+		
+		
+		
+
+/* classe updated time stamp for RITA homepage */
+		
+		
+		.updateStampRita {
+		
+		font-size: 65%;
+		
+		font-family: verdana, arial, helvetica;
+		
+		color: #949494;
+
+		font-weight: bold;
+		
+		}
+
+/* classe updated time stamp */
+		
+		
+		.updateStamp {
+		
+		font-size: 65%;
+		
+		font-family: verdana, arial, helvetica;
+		
+		/*color: #949494;*/
+		
+		color: #2B4053;
+		
+		font-weight: bold;
+		
+		}
+		
+
+
+/* class for rss code in pr and whats new pages */
+
+		.rss {
+		
+		background-color:transparent;
+		
+		color: #ffffff;
+		
+		font-size: 1%;
+		
+		line-height:1px;
+		
+		}
