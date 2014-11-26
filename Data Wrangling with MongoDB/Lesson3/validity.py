@@ -18,6 +18,9 @@ You can write helper functions for checking the data and writing the files, but 
 """
 import csv
 import pprint
+import os
+
+# os.chdir('C:\\Users\\Violetta_Chen\\Documents\\GitHub\\Udacity\\Data Wrangling with MongoDB\\Lesson3')
 
 INPUT_FILE = 'autos.csv'
 OUTPUT_GOOD = 'autos-valid.csv'
