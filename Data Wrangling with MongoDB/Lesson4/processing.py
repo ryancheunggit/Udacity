@@ -8,11 +8,11 @@ Your task in this exercise is to parse the file, process only the fields that ar
 FIELDS dictionary as keys, and return a dictionary of cleaned values.
 
 The following things should be done:
-- keys of the dictionary changed according to the mapping in FIELDS dictionary
-- trim out redundant description in parenthesis from the 'rdf-schema#label' field, like "(spider)"
-- if 'name' is "NULL" or contains non-alphanumeric characters, set it to the same value as 'label'.
-- if a value of a field is "NULL", convert it to None
-- if there is a value in 'synonym', it should be converted to an array (list)
++ keys of the dictionary changed according to the mapping in FIELDS dictionary
++ trim out redundant description in parenthesis from the 'rdf-schema#label' field, like "(spider)"
++ if 'name' is "NULL" or contains non-alphanumeric characters, set it to the same value as 'label'.
++ if a value of a field is "NULL", convert it to None
++ if there is a value in 'synonym', it should be converted to an array (list)
   by stripping the "{}" characters and splitting the string on "|". Rest of the cleanup is up to you,
   eg removing "*" prefixes etc
 - strip leading and ending whitespace from all fields, if there is any
@@ -51,7 +51,7 @@ FIELDS ={'rdf-schema#label': 'label',
          'kingdom_label': 'kingdom',
          'genus_label': 'genus'}
 
-
+CLASSIFICATION_FIELDS = ["kingdom", "family", "order", "phylum", "genus", "class"]
 def process_file(filename, fields):
 
     process_fields = fields.keys()
@@ -62,8 +62,29 @@ def process_file(filename, fields):
             l = reader.next()
 
         for line in reader:
-            # YOUR CODE HERE
-            pass
+            row = {}
+            classification = {}
+            for field in process_fields:
+                content = line[field]
+                if field == "rdf-schema#label" and content.find("(") != -1 :
+                    row[fields[field]] = line[field][:(content.find("(")-1)]
+                elif field == "name" and (content == "NULL" or type(content) != type('str')):
+                    row[fields[field]] = None
+                elif content == "NULL":
+                    row[fields[field]] = None
+                elif field == 'synonym':
+                    row[fields[field]] = parse_array(content)
+                else:
+                    row[fields[field]] = content
+            for field in CLASSIFICATION_FIELDS:
+                classification[field] = row.pop(field)
+            if row['name'] == None:
+                row['name'] = row['label']
+            row["classification"] = classification
+            data.append(row)
+
+
+
     return data
 
 
@@ -96,6 +117,9 @@ def test():
                         "label": "Argiope",
                         "description": "The genus Argiope includes rather large and spectacular spiders that often have a strikingly coloured abdomen. These spiders are distributed throughout the world. Most countries in tropical or temperate climates host one or more species that are similar in appearance. The etymology of the name is from a Greek name meaning silver-faced."
                     }
+
+    with open('writeout.json', "w") as f:
+        json.dump(data, f, sort_keys = True, indent = 4, ensure_ascii = False)
 
 
 if __name__ == "__main__":
