@@ -55,14 +55,21 @@ def add_field(filename, fields):
         reader = csv.DictReader(f)
         for i in range(3):
             l = reader.next()
-        # YOUR CODE HERE
-
+        for line in reader:
+            key = line['rdf-schema#label']
+            if key.find("(") != -1:
+                key = key[:(key.find("(")-1)]
+            value = line['binomialAuthority_label']
+            if value != "NULL":
+                data[key] = value
     return data
 
 
 def update_db(data, db):
-    # YOUR CODE HERE
-    pass
+    for d in data:
+        a = db.arachnid.update({'label':d},
+        {"$set": {"classification.binomialAuthority" : data[d]}})
+
 
 
 def test():
