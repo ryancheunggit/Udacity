@@ -41,3 +41,5 @@ def avg_medal_count():
 output = avg_medal_count()
 
 print output
+
+print df[df>0][['gold','silver','bronze']].apply(numpy.mean)
