@@ -21,7 +21,10 @@ def lineplot(hr_year_csv):
     #
     # You can read more about ggplot at the following link:
     # https://github.com/yhat/ggplot/
-    
-    
-    gg = #YOUR CODE GOES HERE
+
+    df = pandas.read_csv(hr_year_csv)
+    gg = ggplot(df, aes(x = 'yearID', y = 'HR')) + geom_point()
     return gg
+
+
+lineplot(hr_year_csv)
