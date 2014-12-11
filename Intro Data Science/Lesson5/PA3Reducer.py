@@ -38,11 +38,27 @@ def reducer():
     logging.info("My debugging message")
     '''
 
-    max_entries = 0
-    old_key = None
-    datetime = ''
+    result = {}
 
     for line in sys.stdin:
-        # your code here
+     	data = line.strip().split('\t')
+     	key, entry, date, time = data
+        entry = float(entry)
+     	if key not in result:
+     	      result[key] = [date,time,entry]
+     	else:
+     	    if entry > result[key][2]:
+     	        result[key] = [date,time,entry]
+     	    elif entry == result[key][2]:
+     	        if int(date[-2:]) > int(result[key][0][-2:]):
+                    result[key] = [date,time,entry]
+                elif int(date[-2:]) == int(result[key][0][-2:]):
+                    if int(time[:2]) > int(result[key][1][:2]):
+                        result[key] = [date,time,entry]
+    for key in result:
+        print key+"\t"+result[key][0]+" "+result[key][1]+"\t"+str(result[key][2])
+
+
+
 
 reducer()
