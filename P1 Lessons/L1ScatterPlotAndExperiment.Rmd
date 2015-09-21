@@ -1,0 +1,135 @@
+---
+title: "L1"
+author: "Ryan"
+date: "September 18, 2015"
+output: html_document
+---
+
+# L1: Scatter Plots and Experiments
+
+## Read in data
+```{r}
+library(xlsx)
+data <- read.xlsx("Wage Data.xlsx", sheetIndex = 1, colIndex = c(1,2))
+```
+
+## Scatter plot
+```{r}
+  plot(x = data$Hours, y = data$Hourly.Rate, pch = 19)
+```
+
+# L2: Absolute and Relative Frequency
+```{r}
+count <- c(108,286,71,127)
+total <- sum(count)
+porportion <- count/total
+porportion
+percentage <- count/total * 100
+percentage
+```
+
+# L3: Mean, Median, and Mode
+```{r}
+eruptionData <- read.xlsx("Faithful Geyser Eruptions.xlsx", sheetIndex = 1, colIndex = 1)
+eruptionData <- eruptionData[!is.na(eruptionData)]
+mean(eruptionData)
+median(eruptionData)
+intervals <- seq(1.6,5.2,0.2)
+eruptionData.cut <- cut(eruptionData,breaks = intervals,right = F)
+which.max(table(eruptionData.cut))
+hist(eruptionData, breaks = intervals, border = F, col = 'black')
+```
+
+# L4: Variance and Standard Deviation
+```{r}
+eruptionData <- read.xlsx("Faithful Geyser Eruptions with Sample.xlsx", sheetIndex = 1, colIndex = c(1,2))
+population <- eruptionData[1:272,1]
+sample <- eruptionData[1:10,2]
+sum((population-mean(population))^2)/length(population)
+var(sample)
+sqrt(sum((population-mean(population))^2)/length(population))
+sd(sample)
+round(1-2*(1-pnorm(2,0,1)),2)
+round(1-2*(1-pnorm(1,0,1)),2)
+```
+
+# L5-L6: z-scores
+```{r}
+mu_male = 70
+sd_male = 4
+mu_female = 65
+sd_female = 3.5
+Pam.height = 68
+Jesse.height = 72
+Pam.height.z = (Pam.height-mu_female)/sd_female
+Pam.height.z
+Jesse.height.z = (Jesse.height-mu_male)/sd_male
+Jesse.height.z
+pnorm(Pam.height.z, 0 ,1, lower.tail = F)
+pnorm(Jesse.height.z, 0, 1, lower.tail = F)
+```
+
+# L7: Sampling Distributions
+```{r}
+mu_SAT <- 1497
+sd_SAT <- 322
+se <- sd_SAT/sqrt(25)
+se
+pnorm(1609, 1497, se, lower.tail = F)
+```
+
+# L8-L9: Estimation and Hypothesis Testing
+```{r}
+1609 + qnorm(p = 0.025,lower.tail = F)*se*c(-1,1)
+qnorm(p = 0.025,lower.tail = F)
+```
+
+# L10: One-Sample t-Test
+```{r}
+mu = 338
+friendCount = c(356,536,1032,209,285)
+mean_x = mean(friendCount)
+sd_x = sd(friendCount)
+se = sd_x/sqrt(length(friendCount))
+t = (mean_x - mu)/(se)
+t
+p = 2 * pt(t, df = length(friendCount)-1,lower.tail = F)
+p
+mean_x + qt(0.025, df = length(friendCount)-1)*se*c(1,-1)
+```
+
+# L10: Dependent Samples t-Test
+```{r}
+stock <- read.xlsx("Stock Prices.xlsx", sheetIndex = 1, rowIndex = 1:11,colIndex = 1:3)
+stock
+d = stock[,2]-stock[,3]
+mu_d = mean(d)
+se = sd(d)/sqrt(nrow(stock))
+t = (mu_d - 0)/se
+t
+p = 2 * pt(t, df = 9, lower.tail = T)
+p
+qt(0.1/2, df = 9, lower.tail =T)
+mu_d + qt(0.1/2, df = 9, lower.tail =T) * se * c(1,-1)
+```
+
+# L11: Independent Samples t-Test
+```{r}
+dose <- read.xlsx("Guinea pig tooth lengths.xlsx", sheetIndex = 1, colIndex = c(1,2))
+n1 = 20
+n2 = 17
+dose1 <- dose[1:n1,1]
+dose2 <- dose[1:n2,2]
+df <- n1 + n2 - 2
+df
+d = mean(dose1) - mean(dose2)
+sp_squared = ((n1 - 1)*var(dose1) + (n2 - 1)*var(dose2))/df
+se = sqrt(sp_squared * (1/n1 + 1/n2))
+t = (d - 0)/se
+t
+p = 2 * pt(t, df = df, lower.tail = T)
+p
+qt(0.01/2, df = df, lower.tail =T) * c(1,-1)
+d + qt(0.01/2, df = df, lower.tail =T) * se * c(1,-1)
+```
+
