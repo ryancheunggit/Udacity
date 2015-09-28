@@ -1,0 +1,62 @@
+---
+title: "Test a Perceptual Phenomenon"
+author: "Ren Zhang"
+date: "September 27, 2015"
+output: 
+  pdf_document: 
+    highlight: espresso
+    keep_tex: yes
+    number_sections: yes
+    toc: yes
+---
+
+```{r, echo = F}
+data <- read.csv("D:/GithubRepos/Udacity/P1/stroopdata.csv", stringsAsFactors = F)
+```
+
+## Introduction
+In this paper, we are analyzing a sample test results from the Stroop effect experiment. The participants in the experiment are required to name the color of the ink of a list of words shown on screen in two different settings. In one setting, the words that are congruent with the color of ink, and in the other setting the words that are incongruent with their color of ink. The time it takes to finish each test are recorded for further analysis 
+
+## Variables of Interest
++ The independent variable is the type of test, which could be congruent or incongruent.    
++ The dependent variable is the time it takes for participants to complete the task.
+
+## Hypothesis
++ The null hypotheses is: The average time it takes to complete the incongruent test is less than or equal to the average time needed to complete the congruent test.        
++ The alternative hypotheses is: The average time it takes to complete the incongruent test is more than the average time needed to complete the congruent test.  
++ The appropriate test is a paired sampe right-tailed t-test, we use this test because the data is a matched pairs sample, and the inference we want to make is that the parameter is greater than the hypothesized value. 
+
+## Descriptive Statistics
+```{r, echo = F}
+d = data$Incongruent - data$Congruent
+```
++ For the congruent setting test, the average finishing time is `r mean(data[,1])`, and the corrected standard deviation is `r sd(data[,1])`.     
++ For the incongruent setting test, the average finishing time is `r mean(data[,2])` and the corrected standard deviation is `r sd(data[,2])`.    
++ The sample mean of the time difference is `r mean(d)`, and the standard deviation is `r sd(d)`.
+
+## Visualizations
+```{r, fig.height= 3, echo = F}
+par(mfrow=c(1,2))
+hist(d, border = 0, col = "black", main ="Histogram", xlab = "difference in time(second)")
+boxplot(d, horizontal = T, pch = 8, main = "Boxplot", xlab = "difference in time(second)")
+```
+The distribution is positivly skwed, and their is one observation we might want to classify as an outlier. 
+
+## Statistical Test
+```{r, echo = F}
+result <- t.test(data$Incongruent, data$Congruent, alternative = "greater", paired = T)
+```
+The confidence level used here is the default 95% level, the test statistic calculated here is `r result$statistic`, the critical value is `r qt(0.95,df = 23,lower.tail = T)`, since the test statistic is greater than the critical value, we reject the null hypothesis and conclude that the average time it takes a person to complete the test in an incongruent setting is longer than the time it takes for the same person to complete a congruent setting test.   
+
+An output from statistical software for this test is included in the Appendix.
+
+## Further Thoughts
+We might conduct studies to see whether smell would interference the visual perception. We may place papers with words describing different smells on them and placed them under transparent containers, wherein each container we put things with a strong smell that is different from the word printed on the paper. In another setting we match the things we put in the container with the descriptive words underneath the container. And we can conduct a similar test to the Stroop test to see how it turn out.  
+
+\pagebreak  
+
+## Appendix: R output for the t-test
+```{r, echo = F}
+print(result)
+```
+
