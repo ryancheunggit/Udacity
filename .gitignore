@@ -47,6 +47,6 @@ Data Wrangling with MongoDB/Lesson3/FIXME-autos.csv
 *.csv
 *.json
 
-P1 Lessons/*.*
-P2 Lessons/*.*
-P4 Lessons/*.*
+"P1 Lessons"/*.*
+"P2 Lessons"/*.*
+"P4 Lessons"/*.*

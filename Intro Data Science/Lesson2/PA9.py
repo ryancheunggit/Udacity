@@ -32,5 +32,5 @@ def get_hourly_exits(df):
     '''
 
     df['EXITSn_hourly'] = df['EXITSn'].diff(1)
-    df['EXITSn_hourly'].fillna(1, inplace = True)
+    df['EXITSn_hourly'].fillna(0, inplace = True)
     return df

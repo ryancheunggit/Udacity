@@ -6,7 +6,7 @@ def api_get_request(url):
     # top artists in Spain.
     #
     # Once you've done this, return the name of the number 1 top artist in Spain.
-    url = 'http://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=spain&api_key=d4dc3a9fa78d1441a25d4a349e260541&format=json'
+    url = 'http://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=china&api_key=d4dc3a9fa78d1441a25d4a349e260541&format=json'
     data = requests.get(url).text
     data = json.loads(data)
 

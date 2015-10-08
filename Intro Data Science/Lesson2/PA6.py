@@ -25,9 +25,10 @@ def create_master_turnstile_file(filenames, output_file):
     line 5 ...
     '''
     with open(output_file, 'w') as master_file:
-       master_file.write('C/A,UNIT,SCP,DATEn,TIMEn,DESCn,ENTRIESn,EXITSn\n')
-       for filename in filenames:
+        master_file.write('C/A,UNIT,SCP,DATEn,TIMEn,DESCn,ENTRIESn,EXITSn\n')
+        for filename in filenames:
            with open(filename) as f:
-                f.readline()
-                for line in f:
-                    master_file.write(line)
+               reader = csv.reader(f)
+               for row in reader:
+                   writer = csv.writer(master_file)                                           
+                   writer.writerow(row)

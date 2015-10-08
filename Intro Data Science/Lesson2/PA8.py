@@ -34,9 +34,6 @@ def get_hourly_entries(df):
     ...
 
     '''
-    dfs = df.shift()
-    for i in xrange(1,len(df)):
-        df['ENTRIESn_hourly'] = df.loc[i,'ENTRIESn'] - dfs.loc[i,'ENTRIESn']
 
     df['ENTRIESn_hourly'] = df['ENTRIESn'].diff(1)
     df['ENTRIESn_hourly'].fillna(1, inplace = True)

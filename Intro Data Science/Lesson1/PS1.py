@@ -57,7 +57,7 @@ def simple_heuristic(file_path):
     df = pandas.read_csv(file_path)
     predictions = {}
 
-    for _, passenger in df.iterrows():
+    for passenger_index, passenger in df.iterrows():
         if passenger['Sex'] == 'male':
             predictions[passenger['PassengerId']] = 0
         elif passenger['Sex'] == 'female':
