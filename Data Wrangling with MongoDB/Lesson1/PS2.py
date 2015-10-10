@@ -21,27 +21,31 @@ def open_zip(datafile):
 def parse_file(datafile):
     workbook = xlrd.open_workbook(datafile)
     sheet = workbook.sheet_by_index(0)
-    data = [["Station","Year","Month","Day","Hour","Max Load"]]
-    # YOUR CODE HERE
-    # Remember that you can use xlrd.xldate_as_tuple(sometime, 0) to convert
-    # Excel date to Python tuple of (year, month, day, hour, minute, second)
-    for i in range(1,9):
-        name = sheet.cell_value(0,i)
-        col = sheet.col(i,1,sheet.nrows)
-        max_load = max(col)
-        max_index = col.index(max_load) + 1
-        max_load = max_load.value
-        time = xlrd.xldate_as_tuple(sheet.cell_value(max_index,0),0)
-        row = [name] + list(time) + [max_load]
-        data.append(row)        
+    data = []
+    ncol = sheet.ncols
+    for i in range(1,ncol-1):
+        d = {}
+        d["Station"] = sheet.cell_value(0, i)
+        colum_values = sheet.col_values(i, 1)
+        maxload = max(colum_values)
+        d["Max Load"] = maxload
+        maxpos = colum_values.index(maxload)
+        maxload_exceltime = sheet.cell_value(maxpos+1,0)
+        maxload_time = xlrd.xldate_as_tuple(maxload_exceltime, 0)
+        d["Year"] = maxload_time[0]
+        d["Month"] = maxload_time[1]
+        d["Day"] = maxload_time[2]
+        d["Hour"] = maxload_time[3]
+        
+        data.append(d)
     return data
 
 def save_file(data, filename):
-    with open(filename, 'wb') as csvfile:
-        writer = csv.writer(csvfile, delimiter='|')
-        for r in data:
-            writer.writerow(r)
-    csvfile.close()
+    with open(filename, "wb") as f:
+        writer = csv.DictWriter(f, fieldnames=data[0].keys(), delimiter="|")
+        writer.writeheader()
+        writer.writerows(data)
+    f.close()
 
     
 def test():
