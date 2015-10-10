@@ -1,0 +1,639 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass{article}
+
+    
+    
+    \usepackage{graphicx} % Used to insert images
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{color} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    
+
+    
+    
+    \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+    \definecolor{darkorange}{rgb}{.71,0.21,0.01}
+    \definecolor{darkgreen}{rgb}{.12,.54,.11}
+    \definecolor{myteal}{rgb}{.26, .44, .56}
+    \definecolor{gray}{gray}{0.45}
+    \definecolor{lightgray}{gray}{.95}
+    \definecolor{mediumgray}{gray}{.8}
+    \definecolor{inputbackground}{rgb}{.95, .95, .85}
+    \definecolor{outputbackground}{rgb}{.95, .95, .95}
+    \definecolor{traceback}{rgb}{1, .95, .95}
+    % ansi colors
+    \definecolor{red}{rgb}{.6,0,0}
+    \definecolor{green}{rgb}{0,.65,0}
+    \definecolor{brown}{rgb}{0.6,0.6,0}
+    \definecolor{blue}{rgb}{0,.145,.698}
+    \definecolor{purple}{rgb}{.698,.145,.698}
+    \definecolor{cyan}{rgb}{0,.698,.698}
+    \definecolor{lightgray}{gray}{0.5}
+    
+    % bright ansi colors
+    \definecolor{darkgray}{gray}{0.25}
+    \definecolor{lightred}{rgb}{1.0,0.39,0.28}
+    \definecolor{lightgreen}{rgb}{0.48,0.99,0.0}
+    \definecolor{lightblue}{rgb}{0.53,0.81,0.92}
+    \definecolor{lightpurple}{rgb}{0.87,0.63,0.87}
+    \definecolor{lightcyan}{rgb}{0.5,1.0,0.83}
+    
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{Analyzing the NYC Subway Dataset}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=blue,
+      linkcolor=darkorange,
+      citecolor=darkgreen,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Author: Ren Zhang\\
+\item
+  email: zhang\_ren@bentley.edu
+\end{itemize}
+
+    \subsection{Reference}\label{reference}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Dataset:
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    I am using the improved data set downloaded from the Udacity
+    website. A
+    \href{https://s3.amazonaws.com/uploads.hipchat.com/23756/665149/05bgLZqSsMycnkg/turnstile-weather-variables.pdf}{link}
+    to a description of the variables in the data set
+  \end{itemize}
+\item
+  Forum Posts:
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    \href{https://discussions.udacity.com/t/mann-whitney-u-test-on-improved-dataset-yields-p-nan/4470}{Mann-Whitney
+    U Test on improved dataset yields p=NaN?}
+  \item
+    \href{https://discussions.udacity.com/t/project-mann-whitney-u-test-p-value/18145/6}{Project
+    Mann-Whitney U Test p-value}
+  \end{itemize}
+\item
+  Wikipedia Articles:
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    \href{https://en.wikipedia.org/wiki/Mann\%E2\%80\%93Whitney_U_test}{Mann--Whitney
+    U test}
+  \end{itemize}
+\item
+  Book:
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    \href{http://www-stat.stanford.edu/~tibs/ElemStatLearn/index.html}{Elements
+    of Statistical Learning: data mining, inference and prediction} by
+    Hastie, Tibshirani and Friedman
+  \end{itemize}
+\end{enumerate}
+
+    \subsection{Statistical Test}\label{statistical-test}
+
+The variable we are interested in analyzing is \texttt{ENTRIESn\_hourly}
+in the dataset. We want to investigate whether the
+\texttt{ENTRIESn\_hourly} on rainny days and the
+\texttt{ENTRIESn\_hourly} on days without rain are drawn from the same
+population.
+
+Judging from the two histograms(see Appendix) of
+\texttt{ENTRIESn\_hourly} in these two situations, we find out that the
+distributions are not normal. We decide to perform a one-tail
+Mann-Whitney U test, because this test does not make any assumptions on
+distributions whereas t-test can only be applied on normal
+distributions.
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  The null hypothesis is: the mean value of \texttt{ENTRIESn\_hourly} on
+  rainny days is the same as that on days without rain.\\
+\item
+  The alternative hypothesis is: the mean value of
+  \texttt{ENTRIESn\_hourly} on rainny days is higher than that on days
+  without rain.
+\end{itemize}
+
+The mean value of \texttt{ENTRIESn\_hourly} on rainny days is 2028.1960
+and the mean value of \texttt{ENTRIESn\_hourly} on days without rain is
+1845.5394. The U value is 153635120.5 and the associated p value is
+5.4827e-06. The p value is very small, even if we use a very small
+critical value 0.0001, we can still reject the null hypothesis and
+conclude that the mean value of \texttt{ENTRIESn\_hourly} on rainny days
+is significantly higher than that on days without rain.
+
+    \subsection{Linear Regression}\label{linear-regression}
+
+We used lasso regression to perform feature selection and model fitting
+at the same time.
+
+\begin{quote}
+The Lasso is a shrinkage and selection method for linear regression. It
+minimizes the usual sum of squared errors, with a bound on the sum of
+the absolute values of the coefficients.
+\end{quote}
+
+Lasso regression uses a $l_1$ penlty that has the effect of forcing some
+of the coefficient estimates to be exactly equal to zero when the tuning
+parameter $\lambda$ is sufficiently large. Thus, in the resulting model,
+only subset of the features are used.
+
+Since lasso will perform feature selection for us, we can put as many
+features as possible into the fitting. The features entered to fit a
+lasso regression model are: \texttt{precipi}, \texttt{pressurei},
+\texttt{tempi}, \texttt{wspdi}, \texttt{meanprecipi},
+\texttt{meanpressurei}, \texttt{meantempi}, \texttt{meanwspdi},
+\texttt{hour}, \texttt{day\_week}, \texttt{weekday}, \texttt{conds},
+\texttt{rain}, \texttt{fog} and \texttt{UNIT}. Among them, we performed
+dummy variable transformations on \texttt{hour}, \texttt{day\_week},
+\texttt{weekday}, \texttt{conds}, \texttt{rain}, \texttt{fog} and
+\texttt{UNIT}, becasue these variables are categorical rather than
+numerical.
+
+We fitted the lasso regression model using a tuning parameter of 0.2 and
+the resulting $R^2$ value is 0.5125. The features selected in the model
+and the associated coefficients are shown in the Appendix. Unfortuntly,
+only the dummy variables remained in the model.
+
+The $R^2$ value 0.5125 means that 51.25\% of variability in the
+dependent variable \texttt{ENTRIESn\_hourly} in the sample we have is
+explained by the lasso regression model. This $R^2$ value is moderate
+and the model is not appropriate for making perdictions on ridership.
+Also notice that the $R^2$ is not an estimate for the whole population,
+so making perdictions using this model for out of sample data points
+might be even more inaccurate.
+
+    \subsection{Visualization}\label{visualization}
+
+The first visualization is the histograms of the dependent variable
+\texttt{ENTRIESn\_hourly} on rainny days and on days without rain (see
+Appendix for the plots). Judging from the histograms, the distributions
+are not normally distributed but rather following a power law
+distribution.
+
+The second visualization is a bar plot of the average value of the
+dependent variable \texttt{ENTRIESn\_hourly} faceted by the day of week.
+We can clearly see that the ridership during weekend is much less than
+the ridership during weekdays.
+
+    \subsection{Conclusion}\label{conclusion}
+
+Based on the result of the statistical test, we conclude that more
+people ride the NYC subway when it is raining than when it is not
+raining. If indeed there is no difference in ridership between rainny
+days and days without rain, the chance that we obtain the data we have
+in hand is too small that no reasonable people would attribute that to
+chance of sampling.
+
+Since the lasso regression model we built did not include the variable
+\texttt{rain} as a explanatory variable, so the previous conclusion we
+have is based solely on the statistical test. Also, we construced a
+random forest regression model and looked at the feature importance
+provided by the model (see Appendix), \texttt{rain} is not among the 20
+most important variabels.
+
+    \subsection{Reflection}\label{reflection}
+
+One potential shortcomming of this analysis is that, I did not perform
+any test about the outliers. Outliers may have great impact on model
+fitting.
+
+The second thing is that, $R^2$ is not a good measure when comparing
+models with different numbers of features. Adding more explanatory
+variables into a model will never causing the $R^2$ value to decrease.
+
+    \subsection{Appendix Python Code for the
+project}\label{appendix-python-code-for-the-project}
+
+\subsubsection{Load libraries and set ipython notebook inline
+plotting}\label{load-libraries-and-set-ipython-notebook-inline-plotting}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}1}]:} \PY{k+kn}{import} \PY{n+nn}{os}
+        \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k+kn}{as} \PY{n+nn}{pd}
+        \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
+        \PY{k+kn}{import} \PY{n+nn}{scipy}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn} \PY{k+kn}{import} \PY{n}{linear\PYZus{}model}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn.metrics} \PY{k+kn}{import} \PY{n}{r2\PYZus{}score}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn.ensemble.forest} \PY{k+kn}{import} \PY{n}{RandomForestRegressor}
+        \PY{k+kn}{from} \PY{n+nn}{ggplot} \PY{k+kn}{import} \PY{o}{*}
+        \PY{o}{\PYZpc{}}\PY{k}{matplotlib} \PY{n}{inline}
+\end{Verbatim}
+
+
+    \subsubsection{Read in data set}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{n}{filename} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{turnstile\PYZus{}weather\PYZus{}v2.csv}\PY{l+s}{\PYZdq{}}
+        \PY{n}{path} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{d:}\PY{l+s}{\PYZbs{}}\PY{l+s}{GithubRepos}\PY{l+s}{\PYZbs{}}\PY{l+s}{Udacity}\PY{l+s}{\PYZbs{}}\PY{l+s}{P2}\PY{l+s}{\PYZdq{}}
+        \PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{n}{os}\PY{o}{.}\PY{n}{path}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{path}\PY{p}{,}\PY{n}{filename}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \subsubsection{Statistical Test}
+
+
+    get \emph{ENTRIESn\_hourly} in two situations
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{n}{rain\PYZus{}ENTRIESn\PYZus{}hourly} \PY{o}{=} \PY{n}{df}\PY{p}{[}\PY{n}{df}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{rain}\PY{l+s}{\PYZdq{}}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{ENTRIESn\PYZus{}hourly}\PY{l+s}{\PYZdq{}}\PY{p}{]}
+        \PY{n}{nonrain\PYZus{}ENTRIESn\PYZus{}hourly} \PY{o}{=} \PY{n}{df}\PY{p}{[}\PY{n}{df}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{rain}\PY{l+s}{\PYZdq{}}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{ENTRIESn\PYZus{}hourly}\PY{l+s}{\PYZdq{}}\PY{p}{]}
+\end{Verbatim}
+
+    Calculating the mean values of \emph{ENTRIESn\_hourly} in rainy days and
+in days without rain.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{rainny days    |  days without rain}\PY{l+s}{\PYZdq{}}
+        \PY{k}{print} \PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{rain\PYZus{}ENTRIESn\PYZus{}hourly}\PY{p}{)}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{ | }\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{nonrain\PYZus{}ENTRIESn\PYZus{}hourly}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+rainny days    |  days without rain
+2028.19603547  |  1845.53943866
+    \end{Verbatim}
+
+    There is strange behavior of the \texttt{mannwhitneyu()} function from
+the scipy library when used in windows machines against the improved
+data set. This is discussed in a couple of posts (see the Reference
+part).\\I used the formula for p value as described in the wikipeida
+page to calculate it.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{n}{U}\PY{p}{,} \PY{n}{\PYZus{}} \PY{o}{=} \PY{n}{scipy}\PY{o}{.}\PY{n}{stats}\PY{o}{.}\PY{n}{mannwhitneyu}\PY{p}{(}\PY{n}{rain\PYZus{}ENTRIESn\PYZus{}hourly}\PY{p}{,} \PY{n}{nonrain\PYZus{}ENTRIESn\PYZus{}hourly}\PY{p}{)}
+        \PY{n}{mu\PYZus{}u} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{rain\PYZus{}ENTRIESn\PYZus{}hourly}\PY{p}{)}\PY{o}{*}\PY{n+nb}{len}\PY{p}{(}\PY{n}{nonrain\PYZus{}ENTRIESn\PYZus{}hourly}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}
+        \PY{n}{sigma\PYZus{}u} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{rain\PYZus{}ENTRIESn\PYZus{}hourly}\PY{p}{)}\PY{o}{*}\PY{n+nb}{len}\PY{p}{(}\PY{n}{nonrain\PYZus{}ENTRIESn\PYZus{}hourly}\PY{p}{)}\PY{o}{*}
+                          \PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{rain\PYZus{}ENTRIESn\PYZus{}hourly}\PY{p}{)}\PY{o}{+}\PY{n+nb}{len}\PY{p}{(}\PY{n}{nonrain\PYZus{}ENTRIESn\PYZus{}hourly}\PY{p}{)}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{12}\PY{p}{)}
+        \PY{n}{z} \PY{o}{=} \PY{p}{(}\PY{n}{U} \PY{o}{\PYZhy{}} \PY{n}{mu\PYZus{}u}\PY{p}{)}\PY{o}{/}\PY{n}{sigma\PYZus{}u}
+        \PY{n}{p} \PY{o}{=} \PY{l+m+mi}{2}\PY{o}{*}\PY{n}{scipy}\PY{o}{.}\PY{n}{stats}\PY{o}{.}\PY{n}{norm}\PY{o}{.}\PY{n}{cdf}\PY{p}{(}\PY{n}{z}\PY{p}{)}
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{U value      |  p value}\PY{l+s}{\PYZdq{}}
+        \PY{k}{print} \PY{n}{U}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{ | }\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{p}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+U value      |  p value
+153635120.5  |  5.48269387142e-06
+    \end{Verbatim}
+
+    \subsubsection{Linear regression}\label{linear-regression}
+
+Prepare the features and training labels.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{n}{features\PYZus{}start\PYZus{}with} \PY{o}{=} \PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{precipi}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{pressurei}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{tempi}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{wspdi}\PY{l+s}{\PYZdq{}}\PY{p}{,}
+                                \PY{l+s}{\PYZdq{}}\PY{l+s}{meanprecipi}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{meanpressurei}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{meantempi}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{meanwspdi}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{p}{]}
+        
+        \PY{n}{categorical\PYZus{}features\PYZus{}to\PYZus{}dummies} \PY{o}{=} \PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{hour}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{day\PYZus{}week}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{weekday}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{conds}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{rain}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{fog}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{UNIT}\PY{l+s}{\PYZdq{}}\PY{p}{]}
+        
+        \PY{n}{X} \PY{o}{=} \PY{n}{df}\PY{p}{[}\PY{n}{features\PYZus{}start\PYZus{}with}\PY{p}{]}
+        
+        \PY{k}{for} \PY{n}{feature} \PY{o+ow}{in} \PY{n}{categorical\PYZus{}features\PYZus{}to\PYZus{}dummies}\PY{p}{:}
+            \PY{n}{dummy} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{get\PYZus{}dummies}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{n}{feature}\PY{p}{]}\PY{p}{,} \PY{n}{prefix} \PY{o}{=} \PY{n}{feature}\PY{p}{)}
+            \PY{n}{X} \PY{o}{=} \PY{n}{X}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{dummy}\PY{p}{)}
+            
+        \PY{n}{y} \PY{o}{=} \PY{n}{df}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{ENTRIESn\PYZus{}hourly}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+    Fit lasso regression model
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{n}{clf} \PY{o}{=} \PY{n}{linear\PYZus{}model}\PY{o}{.}\PY{n}{Lasso}\PY{p}{(}\PY{n}{alpha}\PY{o}{=}\PY{l+m+mf}{0.2}\PY{p}{,} \PY{n}{fit\PYZus{}intercept} \PY{o}{=} \PY{n+nb+bp}{True}\PY{p}{,} \PY{n}{normalize} \PY{o}{=} \PY{n+nb+bp}{True}\PY{p}{)}
+        \PY{n}{clf}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X}\PY{p}{,}\PY{n}{y}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}7}]:} Lasso(alpha=0.2, copy\_X=True, fit\_intercept=True, max\_iter=1000,
+           normalize=True, positive=False, precompute=False, random\_state=None,
+           selection='cyclic', tol=0.0001, warm\_start=False)
+\end{Verbatim}
+        
+    Make prediction on the sample data and calculate the R Squared value
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{n}{y\PYZus{}pred} \PY{o}{=} \PY{n}{clf}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X}\PY{p}{)}
+        \PY{n}{r2\PYZus{}score}\PY{p}{(}\PY{n}{y}\PY{p}{,}\PY{n}{clf}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}8}]:} 0.51248812846310254
+\end{Verbatim}
+        
+    See the variables used in the model as well as the coefficients
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{n}{names} \PY{o}{=} \PY{n}{X}\PY{o}{.}\PY{n}{columns}\PY{p}{[}\PY{n}{clf}\PY{o}{.}\PY{n}{coef\PYZus{}} \PY{o}{\PYZgt{}} \PY{l+m+mf}{0.01}\PY{p}{]}
+        \PY{n}{coefficients} \PY{o}{=} \PY{n}{clf}\PY{o}{.}\PY{n}{coef\PYZus{}}\PY{p}{[}\PY{n}{clf}\PY{o}{.}\PY{n}{coef\PYZus{}} \PY{o}{\PYZgt{}} \PY{l+m+mf}{0.01}\PY{p}{]}
+        \PY{n}{row\PYZus{}name}\PY{p}{,} \PY{n}{coef\PYZus{}value} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}
+        \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{names}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+            \PY{n}{row\PYZus{}name} \PY{o}{+}\PY{o}{=} \PY{n}{names}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{rjust}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{)}
+            \PY{n}{coef\PYZus{}value} \PY{o}{+}\PY{o}{=} \PY{n+nb}{str}\PY{p}{(}\PY{n+nb}{round}\PY{p}{(}\PY{n}{coefficients}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{rjust}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{)}
+            \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{row\PYZus{}name}\PY{p}{)} \PY{o}{\PYZgt{}} \PY{l+m+mi}{80}\PY{p}{:}
+                \PY{k}{print} \PY{n}{row\PYZus{}name}
+                \PY{k}{print} \PY{n}{coef\PYZus{}value}
+                \PY{k}{print} 
+                \PY{n}{row\PYZus{}name}\PY{p}{,} \PY{n}{coef\PYZus{}value} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+hour\_12     hour\_20  day\_week\_3 conds\_Clear   UNIT\_R011   UNIT\_R012   UNIT\_R013
+   705.82337   912.87137     0.75025    42.73925  5401.16449  6753.92547    652.3663
+
+   UNIT\_R017   UNIT\_R018   UNIT\_R019   UNIT\_R020   UNIT\_R021   UNIT\_R022   UNIT\_R023
+  2267.36089  5913.86907   1398.4282  4443.45774  2752.76777  7587.85015  4223.02754
+
+   UNIT\_R024   UNIT\_R025   UNIT\_R027   UNIT\_R029   UNIT\_R030   UNIT\_R031   UNIT\_R032
+  1358.29953  3495.32068  1037.46312   5299.4362  1169.62972  2421.39851  2515.19138
+
+   UNIT\_R033   UNIT\_R035   UNIT\_R041   UNIT\_R043   UNIT\_R044   UNIT\_R046   UNIT\_R049
+  6304.40921   866.38262  1169.44144    956.5758  2747.98437  6414.43595   842.24775
+
+   UNIT\_R050   UNIT\_R051   UNIT\_R053   UNIT\_R055   UNIT\_R057   UNIT\_R062   UNIT\_R080
+  2093.80474  3203.98963   1308.7658  6473.91472  2952.37678   806.23692  1681.54336
+
+   UNIT\_R081   UNIT\_R083   UNIT\_R084   UNIT\_R085   UNIT\_R086   UNIT\_R092   UNIT\_R093
+  1628.34557  1195.95191  8100.22607   678.76364   669.54322   122.42588   155.24393
+
+   UNIT\_R095   UNIT\_R096   UNIT\_R097   UNIT\_R099   UNIT\_R101   UNIT\_R102   UNIT\_R105
+   312.92751   499.53521  1122.90662   461.12943   895.52192   1784.3606   1434.0595
+
+   UNIT\_R108   UNIT\_R111   UNIT\_R116   UNIT\_R119   UNIT\_R122   UNIT\_R127   UNIT\_R137
+  3323.22618  1320.34981  1299.49494     4.28494   727.18736  2902.11328   619.82327
+
+   UNIT\_R139   UNIT\_R163   UNIT\_R172   UNIT\_R179   UNIT\_R188   UNIT\_R194   UNIT\_R198
+   635.79067  1437.84983     3.88743   4884.6616   436.89373    91.82522   219.21858
+
+   UNIT\_R202   UNIT\_R207   UNIT\_R208   UNIT\_R211   UNIT\_R218   UNIT\_R223   UNIT\_R235
+   401.42173   112.64656   684.90573   522.81744   165.34377   303.48108   688.61001
+    \end{Verbatim}
+
+    \subsubsection{Visualization}\label{visualization}
+
+    create histogram for \emph{ENTRIESn\_hourly} on rainy days and on days
+without rain.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{n}{ggplot}\PY{p}{(}\PY{n}{aes}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{ENTRIESn\PYZus{}hourly}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{color} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{rain}\PY{l+s}{\PYZdq{}}\PY{p}{)} \PY{p}{,} \PY{n}{data} \PY{o}{=} \PY{n}{df}\PY{p}{)} \PY{o}{+} \PYZbs{}
+             \PY{n}{geom\PYZus{}histogram}\PY{p}{(}\PY{n}{binwidth} \PY{o}{=} \PY{l+m+mi}{300}\PY{p}{,} \PY{n}{alpha} \PY{o}{=} \PY{l+m+mf}{0.9}\PY{p}{)} \PY{o}{+} \PYZbs{}
+             \PY{n}{ylab}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Count}\PY{l+s}{\PYZdq{}}\PY{p}{)} \PY{o}{+} \PYZbs{}
+             \PY{n}{ggtitle}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Ridership on Rainny Days}\PY{l+s}{\PYZdq{}}\PY{p}{)} \PY{o}{+} \PYZbs{}
+             \PY{n}{xlim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{15000}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analyzing the NYC Subway Dataset_files/Analyzing the NYC Subway Dataset_28_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}11}]:} <ggplot: (21003019)>
+\end{Verbatim}
+        
+    Both distributions are more likly following the power law distribution
+rather than normal distribution.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} \PY{n}{grouped} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{day\PYZus{}week}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{avg\PYZus{}entri\PYZus{}by\PYZus{}weekday} \PY{o}{=} \PY{n}{grouped}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{ENTRIESn\PYZus{}hourly}\PY{l+s}{\PYZdq{}}\PY{p}{]}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}
+         \PY{n}{avg\PYZus{}entri\PYZus{}by\PYZus{}weekday}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{kind} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{bar}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}12}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x142b3da0>
+\end{Verbatim}
+        
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analyzing the NYC Subway Dataset_files/Analyzing the NYC Subway Dataset_30_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    The two bars on the right hand side are the average value of
+\emph{ENTRIESn\_hourly} on saturday and sunday. The bars are relatively
+shorter than the bars on weekdays.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} \PY{n}{RF\PYZus{}model} \PY{o}{=} \PY{n}{RandomForestRegressor}\PY{p}{(}\PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+         \PY{n}{RF\PYZus{}model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X}\PY{p}{,}\PY{n}{y}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}13}]:} RandomForestRegressor(bootstrap=True, criterion='mse', max\_depth=None,
+                    max\_features='auto', max\_leaf\_nodes=None, min\_samples\_leaf=1,
+                    min\_samples\_split=2, min\_weight\_fraction\_leaf=0.0,
+                    n\_estimators=10, n\_jobs=1, oob\_score=False, random\_state=0,
+                    verbose=0, warm\_start=False)
+\end{Verbatim}
+        
+    The most important 20 features based on random forest model.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}15}]:} \PY{n}{names} \PY{o}{=} \PY{n}{X}\PY{o}{.}\PY{n}{columns}\PY{p}{[}\PY{n}{RF\PYZus{}model}\PY{o}{.}\PY{n}{feature\PYZus{}importances\PYZus{}} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sort}\PY{p}{(}\PY{n}{RF\PYZus{}model}\PY{o}{.}\PY{n}{feature\PYZus{}importances\PYZus{}}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{20}\PY{p}{]}\PY{p}{]}
+         \PY{k}{print} \PY{n}{names}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Index([u'meantempi', u'hour\_0', u'hour\_4', u'hour\_8', u'hour\_12', u'hour\_16',
+       u'hour\_20', u'weekday\_0', u'weekday\_1', u'UNIT\_R011', u'UNIT\_R012',
+       u'UNIT\_R018', u'UNIT\_R020', u'UNIT\_R022', u'UNIT\_R023', u'UNIT\_R029',
+       u'UNIT\_R033', u'UNIT\_R046', u'UNIT\_R055', u'UNIT\_R084', u'UNIT\_R179'],
+      dtype='object')
+    \end{Verbatim}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
