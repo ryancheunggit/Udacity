@@ -283,14 +283,14 @@
     \subsection{Statistical Test}\label{statistical-test}
 
 The variable we are interested in analyzing is \texttt{ENTRIESn\_hourly}
-in the dataset. We want to investigate whether the
-\texttt{ENTRIESn\_hourly} on rainny days and the
-\texttt{ENTRIESn\_hourly} on days without rain are drawn from the same
-population.
+in the dataset. We want to investigate whether the mean rank value of
+\texttt{ENTRIESn\_hourly} in a sample of rainny days and the mean rank
+value of \texttt{ENTRIESn\_hourly} in a sample of days without rain are
+equally likely to be greater than the other.
 
 Judging from the two histograms(see Appendix) of
 \texttt{ENTRIESn\_hourly} in these two situations, we find out that the
-distributions are not normal. We decide to perform a one-tail
+distributions are not normal. We decide to perform a two-tail
 Mann-Whitney U test, because this test does not make any assumptions on
 distributions whereas t-test can only be applied on normal
 distributions.
@@ -298,21 +298,24 @@ distributions.
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  The null hypothesis is: the mean value of \texttt{ENTRIESn\_hourly} on
-  rainny days is the same as that on days without rain.\\
+  The null hypothesis is: the mean rank value of
+  \texttt{ENTRIESn\_hourly} in a random sample drawn from the population
+  of rainny days and the mean rank value of \texttt{ENTRIESn\_hourly} in
+  a random sample drawn from the population of days without rain are
+  equally likely to be greater than the other one.\\
 \item
-  The alternative hypothesis is: the mean value of
-  \texttt{ENTRIESn\_hourly} on rainny days is higher than that on days
-  without rain.
+  The alternative hypothesis is: the mean rank value of
+  \texttt{ENTRIESn\_hourly} in a random sample drawn from the population
+  of rainny days and the mean rank value of \texttt{ENTRIESn\_hourly} in
+  a random sample drawn from the population of days without rain are not
+  equally likely to be greater than the other one.
 \end{itemize}
 
 The mean value of \texttt{ENTRIESn\_hourly} on rainny days is 2028.1960
 and the mean value of \texttt{ENTRIESn\_hourly} on days without rain is
 1845.5394. The U value is 153635120.5 and the associated p value is
 5.4827e-06. The p value is very small, even if we use a very small
-critical value 0.0001, we can still reject the null hypothesis and
-conclude that the mean value of \texttt{ENTRIESn\_hourly} on rainny days
-is significantly higher than that on days without rain.
+critical value 0.0001, we can still reject the null hypothesis.
 
     \subsection{Linear Regression}\label{linear-regression}
 
@@ -401,7 +404,7 @@ project}\label{appendix-python-code-for-the-project}
 plotting}\label{load-libraries-and-set-ipython-notebook-inline-plotting}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}1}]:} \PY{k+kn}{import} \PY{n+nn}{os}
+{\color{incolor}In [{\color{incolor}7}]:} \PY{k+kn}{import} \PY{n+nn}{os}
         \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k+kn}{as} \PY{n+nn}{pd}
         \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
         \PY{k+kn}{import} \PY{n+nn}{scipy}
@@ -409,6 +412,7 @@ plotting}\label{load-libraries-and-set-ipython-notebook-inline-plotting}
         \PY{k+kn}{from} \PY{n+nn}{sklearn.metrics} \PY{k+kn}{import} \PY{n}{r2\PYZus{}score}
         \PY{k+kn}{from} \PY{n+nn}{sklearn.ensemble.forest} \PY{k+kn}{import} \PY{n}{RandomForestRegressor}
         \PY{k+kn}{from} \PY{n+nn}{ggplot} \PY{k+kn}{import} \PY{o}{*}
+        \PY{k+kn}{import} \PY{n+nn}{matplotlib.pyplot} \PY{k+kn}{as} \PY{n+nn}{plt}
         \PY{o}{\PYZpc{}}\PY{k}{matplotlib} \PY{n}{inline}
 \end{Verbatim}
 
@@ -585,17 +589,18 @@ without rain.
 rather than normal distribution.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}12}]:} \PY{n}{grouped} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{day\PYZus{}week}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}15}]:} \PY{n}{grouped} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{day\PYZus{}week}\PY{l+s}{\PYZdq{}}\PY{p}{)}
          \PY{n}{avg\PYZus{}entri\PYZus{}by\PYZus{}weekday} \PY{o}{=} \PY{n}{grouped}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{ENTRIESn\PYZus{}hourly}\PY{l+s}{\PYZdq{}}\PY{p}{]}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
          \PY{n}{avg\PYZus{}entri\PYZus{}by\PYZus{}weekday}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{kind} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{bar}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{title}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Average Ridership per day}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{labels} \PY{o}{=} \PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{Monday}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Tuesday}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Wednesday}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Thursday}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Friday}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Saturday}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sunday}\PY{l+s}{\PYZdq{}}\PY{p}{]}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xticks}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{7}\PY{p}{)}\PY{p}{,} \PY{n}{labels}\PY{p}{,} \PY{n}{rotation}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{vertical}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
-            \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}12}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x142b3da0>
-\end{Verbatim}
-        
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analyzing the NYC Subway Dataset_files/Analyzing the NYC Subway Dataset_30_1.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analyzing the NYC Subway Dataset_files/Analyzing the NYC Subway Dataset_30_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
