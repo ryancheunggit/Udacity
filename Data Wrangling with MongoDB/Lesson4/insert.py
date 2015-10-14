@@ -3,6 +3,8 @@ from autos import process_file
 
 def insert_autos(infile, db):
     autos = process_file(infile)
+    for a in autos:
+        db.autos.insert(a)
 
     # Your code here. Insert the data in one command
     # autos will be a list of dictionaries, as in the example in the previous video

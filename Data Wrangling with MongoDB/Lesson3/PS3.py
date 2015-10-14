@@ -22,19 +22,27 @@ CITIES = 'cities.csv'
 
 def fix_area(area):
 
-    if area.startswith("{"):
-        v = area.replace('{',"").replace('}',"").split("|")
-        v0 = v[0]
-        v1 = v[1]
-        if len(v0) > len(v1):
-            v = v0.split('e+')
+    # YOUR CODE HERE
+    if area == "NULL":
+        area = None
+    elif is_float(area):
+        area = float(area)
+    else:
+        area_parts = area.split("|")
+        first_area = area_parts[0][1:]
+        second_area = area_parts[1][:(len(area_parts[1])-1)]
+        if len(first_area.split(".")[1]) > len(second_area.split(".")[1]):
+            area = float(first_area)
         else:
-            v = v1.split('e+')
-        try:
-            area = float(v[0])*(10**int(v[1]))
-        except:
-            area = float(v[0])
+            area = float(second_area)
     return area
+
+def is_float(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
 
 
 
