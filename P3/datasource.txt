@@ -1,0 +1,9 @@
+The area of map is the boston MA area.
+
+The data file is downloaded from mapzen.
+
+The link to the file is https://s3.amazonaws.com/metro-extracts.mapzen.com/boston_massachusetts.osm.bz2
+
+The date I downloaded the file is Oct. 18 2015
+
+The reason I choose this area of map is that I live right now at Waltham, which is 30 minutes drive from boston, and I went there often.

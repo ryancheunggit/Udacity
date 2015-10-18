@@ -1,0 +1,5 @@
+Web sites: 
+	mapzen: https://mapzen.com/data/metro-extracts
+	OpenStreetMap Wiki: http://wiki.openstreetmap.org/wiki/OSM_XML
+Other sources:
+	N/A
