@@ -47,39 +47,24 @@ Data Wrangling with MongoDB/Lesson3/FIXME-autos.csv
 *.csv
 *.json
 
+"P0 Lessons"/*.*
 "P1 Lessons"/*.*
 "P2 Lessons"/*.*
+"P3 Lessons"/*.*
 "P4 Lessons"/*.*
-P2 Lessons/Lesson 4 Notes.pdf
-P2 Lessons/Lesson 1 Notes.pdf
-P2 Lessons/Lesson 2 Notes.pdf
-P2 Lessons/Lesson 3 Notes.pdf
+
 P2/turnstile-weather-variables.pdf
-P0 Lessons/Lesson1.pdf
-P0 Lessons/Lesson10.pdf
-P0 Lessons/Lesson11.pdf
-P0 Lessons/Lesson2.pdf
-P0 Lessons/Lesson3.pdf
-P0 Lessons/Lesson4.pdf
-P0 Lessons/Lesson5.pdf
-P0 Lessons/Lesson6.pdf
-P0 Lessons/Lesson7.pdf
-P0 Lessons/Lesson8.pdf
-P0 Lessons/Lesson9.pdf
-P3 Lessons/Lesson 2 Notes.pdf
-P3 Lessons/Lesson 3 Notes.pdf
-P0 Lessons/notes.pdf
-P3 Lessons/Lesson 4 Notes.pdf
-P3 Lessons/Lesson 5 Notes.pdf
 *.osm
 *.Rhistory
 *.tex
 *.docx
 *.tmp
-P3/P3second.zip
-P3/P3first.zip
 *.RData
 *.rdx
 *.rdb
 Data Analysis with R/Lesson3/pseudo_facebook.tsv
 P4/P4.zip
+P3/P3second.zip
+P3/P3first.zip
+P4/Climatology of Atlantic Hurricanes.html
+P4/Geography Of American Music.html
