@@ -1,0 +1,273 @@
+---
+title: "Explore and Summarize Data"
+author: "Ren Zhang"
+date: "October 25, 2015"
+output:
+  html_document: 
+    fig_height: 8
+    fig_width: 10
+  pdf_document:
+    highlight: espresso
+---
+
+# Citation 
+P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis. 
+Modeling wine preferences by data mining from physicochemical properties.
+In Decision Support Systems, Elsevier, 47(4):547-553. ISSN: 0167-9236.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, packages}
+# Load all of the packages that you end up using
+# in your analysis in this code chunk.
+# Notice that the parameter "echo" was set to FALSE for this code chunk.
+# This prevents the code from displaying in the knitted HTML output.
+# You should set echo=FALSE for all code chunks in your file.
+library(ggplot2)
+library(ggthemes)
+library(RColorBrewer)
+library(randomForest)
+library(gridExtra)
+theme_set(theme_minimal(11))
+```
+
+```{r echo=FALSE, Load_the_Data, cache = T}
+# Load the Data
+wine <- read.csv("wineQualityReds.csv")
+# The variable X is just the row number, so I removed it
+wine$X <- NULL
+```
+
+# Univariate Plots Section
+```{r echo=FALSE, Univariate_Plots, cache = T}
+# bar plot of wine quality
+print("Frequency distribution of quality")
+table(wine$quality)
+
+qplot(wine$quality, geom = "bar", binwidth = 1) +
+    xlab("Wine Quality") + 
+    ggtitle("Barplot of Wine Quality")
+
+# estimated frequency distributions
+for (i in 1:11){
+    print(paste("Summary of variable",names(wine)[i]))
+    print(summary(wine[,i]))
+    d = density(wine[,i])
+    p = qplot(d$x, d$y/sum(d$y), geom = "line") + 
+        xlab(names(wine)[i]) + 
+        ylab("Probability Density")
+        ggtitle(paste("Distribution of",names(wine)[i]))
+    plot(p)    
+}
+```    
+
+1. The distribution of dependent variable `quality` is slightly left skewed.     
+2. Independent variables `fixed.acidity`, `volatile.acidity`, `citric.acid`, `free.sulfur.dioxide`,`total.sulfur.dioxide` and `alcohol` are approximately poisson distributed.     
+3. Independent variables `residual.sugar`, `chlorides`, and `sulphates` seems to have long tail on the positive side.   
+4. Independent variables `density` and `pH` are roughly normally distributed.    
+
+# Univariate Analysis
+### What is the structure of your dataset?
+```{r, echo= F}
+str(wine)
+```
+The data set contains information about 1599 red variants of the Portuguese "Vinho Verde" wine. There are twelve variables about each wine.   
+
+### What is/are the main feature(s) of interest in your dataset?
+The varibale `quality` is the dependent variable, while the rest eleven variables are independent variables. The dependent variable is the one we hope to gain better understand about in the dataset.  
+
+### What other features in the dataset do you think will help support your investigation into your feature(s) of interest?
+```{r, echo = F}
+print("correlation between each dependent variable and quality")
+abs(round(cor(wine),3))[-12,"quality"]
+```
+    
+The correlations between any single independent variable and the independent variable are not strong. We possibly will need them working together to help predict the wine quality. 
+
+### Did you create any new variables from existing variables in the dataset?
+```{r, echo = F}
+wine$leqFive <- wine$quality <= 5
+```   
+
+I created a variable called `leqFive` indicating whether the wine has a quality less than or equal to five. 
+The reason I created this variable is that, there are `r round(sum(wine$quality <= 5)/nrow(wine),2)*100`% wines with a quality less than or equal to 5 and `r 100-round(sum(wine$quality <= 5)/nrow(wine),2)*100`% wines with a quality greater than or equal to 6. Also the proportion of wines that have a quality 5 or 6 is `r round(sum(wine$quality == 5 | wine$quality == 6)/nrow(wine),2)*100`% of all wines. So it will be very important if we can distinguish wines with quality less than equal to 5 and wines with quality greater or equal to 6. 
+
+### Of the features you investigated, were there any unusual distributions? Did you perform any operations on the data to tidy, adjust, or change the form of the data? If so, why did you do this?
+I think the dependent variable is better treated as a categorical variable, thus I am turning it into type factor in R. 
+```{r, echo = F}
+wine$quality <- as.factor(wine$quality)
+```
+To predict the wine quality after this transformation, the problem is now a classification problem.   
+
+# Bivariate Plots Section
+```{r echo=FALSE, Bivariate_Plots, message = F, warning = F, cache = T}
+# boxplot of independent variables for each wine quality 
+for (i in 1:11){
+    print(paste("Summary of variable",names(wine)[i],"By quality"))
+    print(by(wine[,i],wine$quality, summary))
+    print("One-way ANOVA test")
+    print(summary(aov(formula(paste(names(wine)[i],"~quality", sep = "")), wine)))
+    p = qplot(x = wine$quality, y = wine[,i], geom = "boxplot") + 
+        xlab("quality") + 
+        ylab(names(wine)[i]) +
+        ggtitle(paste("Boxplots of",names(wine)[i],"By quality"))
+    plot(p)    
+}
+# correlation matrix
+print("Correlation matrix for independent variables")
+abs(round(cor(wine[,-c(12,13)]),3))
+```      
+
+1. The values of `volatile.acidity`, `density` and `pH` tend to decrease as the quality of wine get higher.  
+2. The values of `citric.acid`, `sulphates` and `alcohol` tend to increase as the quality of wine get higher.  
+3. The values of `fixed.acidity`, `residual.sugar` and `chlorides` does not seems to vary with quality.  
+4. The values of `free.sulfur.dioxide` and `total.sulfur.dioxid` seems to be lower in low quality and high quality wines and higher in middle quality wines.  
+5. The absolute value of correlation coefficients between `free.sulfur.dioxide` and `total.sulfur.dioxide` as well as between `fixed.acidity` and `citric.acid` are higher than 0.6. We might consider only use one of the two correlated variables when building the model.   
+
+# Bivariate Analysis
+
+### Talk about some of the relationships you observed in this part of the investigation. How did the feature(s) of interest vary with other features in the dataset?
+Variables `volatile.acidity`, `density`, `pH`, `citric.acid`, `sulphates` and `alcohol` tend to change as the quality of wine get higher.  
+
+
+### Did you observe any interesting relationships between the other features (not the main feature(s) of interest)?
+Variables `free.sulfur.dioxide` and `total.sulfur.dioxide` as well as `fixed.acidity` and `citric.acid` are moderately correlated. We might need to exclude correlated variables in model building.  
+
+### What was the strongest relationship you found?
+The correlation coefficient between `free.sulfur.dioxide` and `total.sulfur.dioxide` is 0.683, which is the highest among all possible pairs of variables.   
+
+# Multivariate Plots Section
+```{r echo=FALSE, Multivariate_Plots, cache = T}
+# most
+comb <- combn(names(wine)[-c(12,13)],2)
+for (i in 1:ncol(comb)){
+    p <- qplot(x = wine[,comb[1,i]], y = wine[,comb[2,i]],
+               color = wine$leqFive, size = 5, alpha = 0.5) +
+         scale_color_brewer(palette = "Set1") +
+         xlab(comb[1,i])+
+         ylab(comb[2,i])+
+         ggtitle(paste(comb[1,i],"against",comb[2,i],"colored by leqFive")) + 
+         labs(color = "quality <= 5")
+    plot(p)
+}
+```
+In these plots, we are searching for the right combination of independent variables that seems to be able to support a clear sperating line in the plot that distinguish the wines with quality less than or equal to five with those higher than five in quality.  
+
+# Multivariate Analysis
+
+### Talk about some of the relationships you observed in this part of the investigation. Were there features that strengthened each other in terms of looking at your feature(s) of interest?
+Judging from the plots, I would say the the combination of `sulphates` and `alcohol`, the combination of `chlorides` and `alcohol`, the combination of `volate.acidity` and `alcohol`, and the combination of `volatile.acidity` and `sulphates` seem to able to help us distinguish wines with higher quality($\geq 6$) and wines with lower quality($\leq 5$).  
+
+### Were there any interesting or surprising interactions between features?
+Even though `free.sulfur.dioxide` and `total.sulfur.dioxide` are moderately correlated with each other, based on the plots, many low quality($leq 5$) wine tend to have higher value in `total.sulfur.dioxide` for a given value of `free.sulfur.dioxide`. So the combination of the two variable seems to be able to provide some explanation for wine quality.  
+
+### OPTIONAL: Did you create any models with your dataset? Discuss the strengths and limitations of your model.
+```{r, cache = T}
+set.seed(0306)
+# find number of variables to use
+wine.rfcv <- rfcv(trainx = wine[,-c(12,13)],
+                  trainy = wine$quality,
+                  cv.fold=5)
+plot(wine.rfcv$n.var, wine.rfcv$error.cv, pch = 19, type = "b")
+
+# find parameter value `mtry`
+wine.tunedRF <- tuneRF(x=wine[,-c(12,13)],
+                       y=wine$quality)
+
+# fit randomForest model
+set.seed(1126)
+wine.rf <- randomForest(x=wine[,-c(12,13)],
+                        y=wine$qualit,
+                        ntree = 1500,
+                        mtry = 3,
+                        importance = T)
+
+# see the importance of variables
+importance(wine.rf)
+
+# see in sample prediction confusion matrix
+table(wine.rf$predicted, wine$quality)
+
+# predciton accuracy
+100*round(sum(diag(table(wine.rf$predicted, wine$quality)))/nrow(wine),4)
+```
+
+I built a random forest model using all the indenpendent variables in the original dataset. The model gives a 72.55% in sample prediction accuracy, which is not very great.  
+
+------
+
+# Final Plots and Summary
+
+### Plot One
+```{r echo=FALSE, Plot_One}
+qplot(wine$quality, geom = "bar", binwidth = 1) +
+    xlab("Wine Quality") + 
+    ggtitle("Barplot of Wine Quality")
+```
+
+### Description One     
+
+The boundary quality $\leq 5$ and quality $\geq 6$ roughly divides the data set into two equal size halfs. 82% percent of the wines are of quality 5 or 6. 
+
+### Plot Two
+```{r echo=FALSE, Plot_Two}
+p1 <- qplot(x = wine$quality, y = wine$sulphates, geom = "boxplot") + 
+        xlab("quality") + 
+        ylab("sulphates (g / dm^3)") +
+        ggtitle(paste("Boxplots of sulphates By quality"))
+p2 <- qplot(x = wine$quality, y = wine$alcohol, geom = "boxplot") + 
+        xlab("quality") + 
+        ylab("alcohol (% by volume)") +
+        ggtitle(paste("Boxplots of alcohol By quality"))
+p3 <- qplot(x = wine$quality, y = wine$citric.acid, geom = "boxplot") + 
+        xlab("quality") + 
+        ylab("citric.acid (g / dm^3)") +
+        ggtitle(paste("Boxplots of",names(wine)[i],"By quality"))
+grid.arrange(p1,p2,p3,ncol = 1)
+```
+
+### Description Two     
+
+The median value of variable `sulphates`, `alcohol` and `citric.acid` tends to increase as the quality of the wine gets higher.    
+
+### Plot Three
+```{r echo=FALSE, Plot_Three}
+p1 <- qplot(x = wine$fixed.acidity, y = wine$alcohol,
+               color = wine$leqFive, size = 5, alpha = 0.5) +
+         geom_abline(intercept = 13.8, slope = -0.4, size = 1) + 
+         scale_color_brewer(palette = "Set1") +
+         xlab("fixed.acidity (g / dm^3)")+
+         ylab("alcohol (% by volume)")+
+         ggtitle(paste("fixed.acidity against alcohol colored by leqFive")) + 
+         labs(color = "quality <= 5") 
+p2 <- qplot(x = wine$volatile.acidity, y = wine$sulphates,
+               color = wine$leqFive, size = 5, alpha = 0.5) +
+         geom_abline(intercept = 0.5, slope = 0.23, size = 1) + 
+         scale_color_brewer(palette = "Set1") +
+         xlab("volatile.acidity (g / dm^3)")+
+         ylab("sulphates (g / dm3)")+
+         ggtitle(paste("volatile.acidity against sulphates colored by leqFive")) +
+         labs(color = "quality <= 5")
+p3 <- qplot(x = wine$volatile.acidity, y = wine$alcohol,
+               color = wine$leqFive, size = 5, alpha = 0.5) +
+         geom_abline(intercept = 9, slope = 2, size = 1) + 
+         scale_color_brewer(palette = "Set1") +
+         xlab("volatile.acidity (g / dm^3)")+
+         ylab("alcohol (% by volume)")+
+         ggtitle(paste("volatile.acidity against alcohol colored by leqFive")) +
+         labs(color = "quality <= 5")
+p4 <- qplot(x = wine$chlorides, y = wine$alcohol,
+               color = wine$leqFive, size = 5, alpha = 0.5) +
+         geom_abline(intercept = 10.2, slope = 3, size = 1) + 
+         scale_color_brewer(palette = "Set1") +
+         xlab("chlorides (g / dm^3)")+
+         ylab("alcohol (% by volume)")+
+         ggtitle(paste("chlorides against alcohol colored by leqFive")) + 
+         labs(color = "quality <= 5")
+grid.arrange(p1,p2,p3,p4, ncol = 2)
+```
+
+### Description Three     
+
+Even though single independent variable has very weak correlation with the wine quality. Combinations of two variables can support a seperating line that can classify wines with quality lower than or equal to 5 and wines with quality higher than 5. 
+
+# Reflection
+The purpose of this data exploration is to identify the variables to be used to build model to predict wine quality. We find that no single variable can be used to indicate the wine quality well enough. Using combinations of variables we can get better ideal of the wine quality. I used random froest model to perform feature selection, the results suggest that we need to use all variables in hand. Based on the prediction results on the sample, most classification error occurs with quality 5 and quality 6. We might need to dive deeper to investigate in that direction.   

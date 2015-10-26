@@ -78,3 +78,8 @@ P3 Lessons/Lesson 5 Notes.pdf
 *.tmp
 P3/P3second.zip
 P3/P3first.zip
+*.RData
+*.rdx
+*.rdb
+Data Analysis with R/Lesson3/pseudo_facebook.tsv
+P4/P4.zip
