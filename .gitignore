@@ -47,11 +47,11 @@ Data Wrangling with MongoDB/Lesson3/FIXME-autos.csv
 *.csv
 *.json
 
-"P0 Lessons"/*.*
-"P1 Lessons"/*.*
-"P2 Lessons"/*.*
-"P3 Lessons"/*.*
-"P4 Lessons"/*.*
+P0 Lessons/*.*
+P1 Lessons/*.*
+P2 Lessons/*.*
+P3 Lessons/*.*
+P4 Lessons/*.*
 
 P2/turnstile-weather-variables.pdf
 *.osm
@@ -66,5 +66,6 @@ Data Analysis with R/Lesson3/pseudo_facebook.tsv
 P4/P4.zip
 P3/P3second.zip
 P3/P3first.zip
-P4/Climatology of Atlantic Hurricanes.html
-P4/Geography Of American Music.html
+
+P4/"Climatology of Atlantic Hurricanes.html"
+P4/"Geography Of American Music.html"
