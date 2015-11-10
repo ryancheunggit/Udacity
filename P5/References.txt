@@ -1,0 +1,6 @@
+Website:
+https://en.wikipedia.org/wiki/Enron
+https://www.cs.cmu.edu/~./enron/
+http://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.SelectKBest.html
+http://scikit-learn.org/stable/modules/generated/sklearn.grid_search.GridSearchCV.html
+http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.StratifiedShuffleSplit.html#sklearn.cross_validation.StratifiedShuffleSplit

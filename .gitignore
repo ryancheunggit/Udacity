@@ -70,3 +70,5 @@ P3/P3first.zip
 P4/"Climatology of Atlantic Hurricanes.html"
 P4/"Geography Of American Music.html"
 *.pyc
+*.pkl
+*.zip
