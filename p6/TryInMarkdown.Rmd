@@ -1,0 +1,30 @@
+---
+title: "TryDimpleInRmarkdown"
+author: "Ryan"
+date: "December 1, 2015"
+output: html_document
+---
+
+```{r, echo = T}
+setwd("D:/GithubRepos/Udacity/p6")
+library(dimple)
+data <- read.csv("train.csv")
+data <- na.omit(data)
+data$Age <- as.integer(data$Age)
+```
+
+# 
+```{r}
+dimple(data,
+       xCategory="Survived",
+       yCategory="Pclass",
+       series = "Sex")
+```
+
+```{r}
+dimple(data,
+       xCategory="Survived",
+       yCategory="Pclass",
+       series = "Sex")
+```
+

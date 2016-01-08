@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Visualization</title>
+</head>
+<body>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script type="text/javascript">
+    d3.csv("data.csv", function(data) {
+    	dataset = data.map(function(d){
+    		return [
+    			+ d["PassengerId"],
+    			+ d["Survived"],
+    			+ d["Pclass"],
+    			d["Name"],
+    			d["Sex"],
+    			+ d["Age"],
+    			+ d["SibSp"],
+    			+ d["Parch"],
+    			d["Ticket"],
+    			+ d["Fare"],
+    			d["Cabin"],
+    			d["Embarked"]
+    		];});
+    });
+    </script>
+</body>
+</html>
