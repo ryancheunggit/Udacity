@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Visualization</title>
-
+<!--
+	Author: Ren Zhang
+	Email: zhang_ren@bentley.edu
+-->
+	<title>Visualization Version2</title>
+	<meta charset = "utf-8">
 	<style type="text/css">
 		.Survived {
-			fill : #FF0;
+			fill : #F00;
 		}
 		.Died {
 			fill : #00F;
@@ -35,17 +39,25 @@
 		rect:hover{
 			opacity: 1;
 		}
+		.instruction{
+			width: 50vw;
+			display: block;
+			margin: 0 auto;
+		}
+
 
 	</style>
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 	<script type="text/javascript">
 		// setting up the svg 		
-	    var margin = 50, width = 1450, height = 300, x_axis_space = 100;
-	    var rect_side = 15;
+	    var margin = 50, width = 1080, height = 200, x_axis_space = 100;
+	    var rect_side = 10;
 
-	    /*
+	    /**
 		 *	helper function for split the dataset into two subsets based on the gender of the passenger
+	     *  @param: data file and desired gender for subset
+		 *  @return: a smaller dataset
 	    */
 	    function filter_data(data, sex){
 	    	var filtered_data = data.filter(function(d) {
@@ -54,7 +66,10 @@
 	    	return filtered_data;
 		}
 
-
+		/**
+		* function for drawing the visualization
+		* @param: datafile
+		*/
 		function draw(data){
 
 			// subset the dataset
@@ -97,7 +112,7 @@
 		    	.domain(age_extent);
 
 		    var y_scale = d3.scale.linear()
-		    	.range([height/2-margin/2, rect_side + 10])
+		    	.range([rect_side + 10, height/2-margin/2])
 		    	.domain(pclass_extent);
 
 
@@ -191,22 +206,27 @@
 		    		.text("Died")
 		    		.attr("transform", "translate(" + rect_side/2 + "," + rect_side*2.5 + ")");
 
+		    // set up tool tip information
 		    var tip = d3.tip()
 				.attr('class', 'd3-tip')
 				.offset([-10, 0])
 				.html(function(d) {
-			    	return "<strong>Name:</strong> <span style='color:red'>" + d.Name + "</span>" 
-			    	 + "<br/>" + "<strong>Gender:</strong> <span style='color:green'>" + d.Sex + "</span>"			    	
-			    	 + "<br/>" + "<strong>Age:</strong> <span style='color:orange'>" + d.Age + "</span>"
-			    	 + "<br/>" + "<strong>Class:</strong> <span style='color:pink'>" + d.Pclass + "</span>";
-  				})
+			    	return "<strong>Gender:</strong> <span style='color:red'>" + d.Sex + "</span>" + " "
+			    	 + "<strong>Class:</strong> <span style='color:red'>" + d.Pclass + "</span>" + " "
+			    	 + "<strong>Age:</strong> <span style='color:red'>" + d.Age + "</span>" + " " 
+			    	 + "<br/>" 
+			    	 + "<strong>Survive Rate:</strong> <span style='color:yellow'>" + d.surviveRate + "%" +  "</span>" + " "
+			    	 + "<strong>Number of People:</strong> <span style='color:yellow'>" + d.numTotal + "</span>";
+			});
 
+			// set up mouse over tool tip information
   			d3.selectAll("svg").call(tip);
 
 		    d3.selectAll("rect.points")
 		    	.on("mouseover", tip.show)
 		    	.on("mouseout", tip.hide);
 
+		    // make a separation line
 		    d3.select("svg.male")
 		    	.append("line")
 		    		.attr("x1", ""+0)
@@ -219,12 +239,31 @@
 	</script>
 </head>
 <body>
-	<h1 class = "chart_title">Survive or Not</h1>
+	<h1 class = "chart_title">Titanic Passengers: Survive or Not</h1>
 	<h2 class = "chart_title">Explained with Age, Gender and Class</h2>
+	<div class = "instruction">
+	<details>
+		<summary>Having Trouble Reading the Graph?</summary>
+		<p>
+		The dataset come from <a href="https://www.kaggle.com/c/titanic" target="_blank"><i>Titanic: Machine Learning from Disaster</i></a>, a 101 type of machine learning competition hosted on Kaggle since it started.
+		The task is to predict who would survive the disaster given information on individual's age, gender, socio-economic status(class) and various other features.</p>
+		<ul>
+			<li>Each rectangle in the graph represents a passenger on Titanic, color red means that the passenger survived the disaster and the color blue indicates that he does not.</li>
+			<li>There can be multiple people with the same age, gender, and class values, so I set the opacity of these rectangles to be 20%. The places on the graph where you can see solid red shows that those passengers have a higher chance of surviving, whereas solid blue indicates danger.</li>
+			<li>You can move mouse over the rectangles to see deatiled summary information on surviving rates.</li>
+		</ul>
+		<p>Based on this visualization we can see that:</p>
+		<ol>
+			<li>females and young males(under age 15) from middle and upper class tend to survive.</li>
+			<li>the overall survivor rate for female passengers is higher than male passengers.</li>
+		</ol>
+		<p>So, without all the drama shown in the classic movie, this visualization basically predicts that Jack will most likely not able to make it, but Rose will survive...</p>
+	</details>
+	</div>
 	<div class = "chart"></div>
 	<script type="text/javascript">
 	// loading data and drawing
-    d3.csv("data.csv", function(d) {
+    d3.csv("pdata.csv", function(d) {
     	// convert numeric columns into javascript numbers
     	d["PassengerId"] = +d["PassengerId"];
     	d["Survived"] =	+d["Survived"];
