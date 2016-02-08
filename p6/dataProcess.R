@@ -32,3 +32,15 @@ pdata <- inner_join(data, sumData)
 
 # write out data file for the improved data visualization
 write.csv(pdata, "pdata.csv", row.names = F)
+
+# updated Jan 24th
+# process data for bar chart
+by_gender_class <- group_by(data, Sex, Pclass)
+sumData <- summarise(by_gender_class, 
+                     surviveRate = round(sum(Survived)/n(),2) * 100)
+meltedSumData <- melt(sumData, id.vars = c("Sex", "Pclass"))
+sdata <- dcast(meltedSumData, Sex~Pclass)
+names(sdata)[2:4] <- c("Upper", "Middle", "Lower")
+
+# write out file
+write.csv(sdata, "sdata.csv", row.names = F)
