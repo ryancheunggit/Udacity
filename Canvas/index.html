@@ -16,6 +16,8 @@
 		image.onload = function(){
 			console.log("Loaded image");
 			ctx.drawImage(image, 0, 0, c.width, c.height);
+			var savedImage = c.toDataURL();
+			window.open(savedImage);
 		}
 
 		image.src = "cat.jpg"
