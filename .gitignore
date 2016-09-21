@@ -26,7 +26,8 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -69,10 +70,15 @@ P3/P3first.zip
 
 P4/"Climatology of Atlantic Hurricanes.html"
 P4/"Geography Of American Music.html"
+
 *.pyc
 *.pkl
 *.zip
 *.txt
+
 Intro Machine Learning/text_learning/.ipynb_checkpoints/Untitled0-checkpoint.ipynb
 *.com
+
 Intro Machine Learning/final_project/enron61702insiderpay.pdf
+
+GitAndGithub
